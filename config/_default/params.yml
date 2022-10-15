@@ -62,3 +62,21 @@ imageProcessing:
     enabled: true
   content:
     enabled: true
+
+shareButtons:
+  networks:
+    - facebook
+    - twitter
+    - tumblr
+    # - email
+    # - pinterest
+    - linkedin
+    - reddit
+    # - xing
+    # - whatsapp
+    - hackernews
+    - vk
+    - telegram
+  size: small
+  icon: solid
+  buttonMargin: 0.2em
