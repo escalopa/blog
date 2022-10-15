@@ -1,0 +1,21 @@
+social:
+  - identifier: github
+    name: GitHub
+    url: 'https://github.com/escalopa'
+    params:
+      icon: brand-github
+  - identifier: twitter
+    name: Twitter
+    url: 'https://twitter.com/escalopaPapi'
+    params:
+      icon: brand-twitter
+  - identifier: linkedin
+    name: Linkedin
+    url: 'https://www.linkedin.com/in/ahmad-helaly-53b5b9236/'
+    params:
+      icon: linkedin
+  - identifier: stackoverflow
+    name: Stackoverflow
+    url: 'https://stackoverflow.com/users/14295533/escapola'
+    params:
+      icon: brand-stackoverflow

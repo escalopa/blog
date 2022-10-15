@@ -1,0 +1,28 @@
+en:
+  languageName: English
+  languagedirection: ltr
+  title: Ahmad Helaly
+  weight: 1
+  # menu:
+  #   main:
+  #     - url: /en
+  #       name: Home
+# ru:
+#   languageName: Русский
+#   languagedirection: ltr
+#   title: Ahmad Helaly
+#   weight: 1
+#   menu:
+#     main:
+#       - url: /ru
+#         name: Главная
+
+# ar:
+#   languageName: "العربىة"
+#   languagedirection: rtl
+#   title: "احمد حلالى"
+#   weight: 1
+#   menu:
+#   main:
+#     - url: /ar
+#       name: "الرئيسية"

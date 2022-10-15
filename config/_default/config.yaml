@@ -1,0 +1,8 @@
+baseurl: 'https://escalopa.live'
+languageCode: en-us
+paginate: 5
+title: Ahmad Helaly
+DefaultContentLanguage: en
+hasCJKLanguage: false
+# disqusShortname: hugo-theme-stack
+
