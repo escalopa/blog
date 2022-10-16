@@ -80,3 +80,9 @@ shareButtons:
   size: small
   icon: solid
   buttonMargin: 0.2em
+  
+comments:
+  enabled: true
+  provider: disqus
+  disqusjs:
+    shortname: escalopa-live

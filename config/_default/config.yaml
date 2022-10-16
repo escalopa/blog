@@ -1,6 +1,7 @@
-baseurl: 'https://escalopa.live'
+baseurl: 'https://escalopa.live/'
 languageCode: en-us
 paginate: 5
 title: Ahmad Helaly
 DefaultContentLanguage: en
 hasCJKLanguage: false
+googleAnalytics: G-D3MHJ8D3LS
