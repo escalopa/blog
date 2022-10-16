@@ -4,5 +4,3 @@ paginate: 5
 title: Ahmad Helaly
 DefaultContentLanguage: en
 hasCJKLanguage: false
-assets:
-  favicon: /favicon.ico

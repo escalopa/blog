@@ -3,7 +3,7 @@ mainSections:
 
 rssFullContent: true
 
-favicon: favicon.ico
+favicon: /favicon.ico
 footer:
   since: 2022
   customText: ''
