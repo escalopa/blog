@@ -84,5 +84,5 @@ shareButtons:
 comments:
   enabled: true
   provider: disqus
-  disqusjs:
+  disqus:
     shortname: escalopa-live
