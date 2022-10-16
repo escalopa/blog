@@ -67,14 +67,14 @@ shareButtons:
   networks:
     - facebook
     - twitter
-    - tumblr
+    # - tumblr
     # - email
     # - pinterest
     - linkedin
     - reddit
     # - xing
     # - whatsapp
-    - hackernews
+    # - hackernews
     - vk
     - telegram
   size: small
