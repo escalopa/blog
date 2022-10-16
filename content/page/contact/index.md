@@ -1,7 +1,9 @@
 ---
 title: "Contact"
 layout: "contact"
+disableShare: true
 slug: "contact"
+toc: off
 menu:
     main:
         weight: 2

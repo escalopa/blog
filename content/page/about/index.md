@@ -1,6 +1,7 @@
 ---
 title: "About Me"
 readingTime: false
+disableShare: true
 layout: "about"
 slug: "about"
 menu:

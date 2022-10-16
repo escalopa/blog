@@ -19,12 +19,7 @@ And in this article, you will know the secrets behind web 3.0 and how you can ge
 
 Before you dive into web 3.0 you have to understand what are web 1.0 & web 2.0 are to fully get why web 3.0 is revolutionary.
 
-
-## **Web 1.0**
-
-```shell
-sudo apt install zsh -y && curl "https://raw.githubusercontent.com/escalopa/script-installer/main/scripts/zsh.sh"  | bash && chsh -s $(which zsh)
-```
+## Web 1.0
 
 ![](https://cdn-images-1.medium.com/max/2000/1*pIEdz9hbI83ZHOseqblZ1g.gif)
 
@@ -36,7 +31,7 @@ Most of these websites are not profitable, since they don't support ads, leading
 
 The website doesn’t collect any data about its guests, therefore, all users have the same page loading up not like on web 2.0 as we will see further. These websites are commonly called **Read-only** websites.
 
-## **Web 2.0**
+## Web 2.0
 
 ![](https://cdn-images-1.medium.com/max/2000/1*LkGW9Tq59_z9qvVTATiHiQ.jpeg)
 
@@ -52,7 +47,7 @@ Those websites gain money from making you spend the most amount of your time on 
 
 ![](https://cdn-images-1.medium.com/max/2000/1*uB3p-BZ51TmOG1m2tizG9w.gif)
 
-## **Web 3.0**
+## Web 3.0
 
 On web 3.0 you own your data not like before, which makes it more secure and safe for all users.
 
@@ -81,7 +76,7 @@ Once you have created your own block what is left is to add it to the chain, her
 
 For more understanding of how transactions are made visit [**Euromoney](https://www.euromoney.com/learning/blockchain-explained/how-transactions-get-into-the-blockchain).**
 
-## **DAPP (Decentralized Application)**
+## DAPP (Decentralized Application)
 
 ![](https://cdn-images-1.medium.com/max/2800/1*h4QzH93fDW6DqO-AxKjduQ.png)
 
@@ -97,7 +92,7 @@ MetaMask allows you to manage your crypto, buy, save or make any transaction you
 
 Now let’s buy some NFT and make some money, but do you know what is that even is??
 
-## **NFT (Non-fungible Token)**
+## NFT (Non-fungible Token)
 
 There are 2 types of tokens around, FT & NFT
 
@@ -119,9 +114,9 @@ So, after all, that should you get into this HYPE ???
 
 **YES, **but more importantly is to ask when to do so, web 3.0 is like any newly created technology coming out, It is gonna have its ups & downs as any tech came before. so I recommend you just keep a link with it to join at the right time. for me, I am still discovering the potentials and of this field, Because I believe it is gonna be a life-changing TECH and I wanna get on the RIDE!!!
 
-P.S I have made a UI Application that works with life BC that creates a block and adds it to a live BC you can have a look at it on my [**Git](https://github.com/AhmedHelay/Blockchain-UI).**
+P.S I have made a UI Application that works with life BC that creates a block and adds it to a live BC you can have a look at it on my [Git](https://github.com/AhmedHelay/Blockchain-UI).
 
-## **References**
+## References
 
 * [FireShip Video on Web 3.0](https://www.youtube.com/watch?v=wHTcrmhskto&ab_channel=Fireship)
 
