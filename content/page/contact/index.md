@@ -1,6 +1,7 @@
 ---
 title: "Contact"
 layout: "contact"
+disableReadTime: true
 disableShare: true
 slug: "contact"
 toc: off
@@ -11,7 +12,7 @@ menu:
             icon: contact
 ---
 
-# Hey my new friend !
+## Hey my new friend !
 
 I am more than happy than you are interested in contacting with me.
 
