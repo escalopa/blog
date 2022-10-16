@@ -1,6 +1,6 @@
-googleAnalytics: ${GOOGLE_ANALYTICS_ID}
+googleAnalytics: G-D3MHJ8D3LS
 comments:
   enabled: true
   provider: disqus
   disqusjs:
-    shortname: ${DISQUS_SHORTNAME}
+    shortname: escalopa-live
