@@ -43,15 +43,15 @@ widgets:
     - type: toc
 
 opengraph:
-  twitter:
-    site: ''
+  twitter: 
+    site: escalopaPapi
     card: summary_large_image
 
 defaultImage:
   opengraph:
     enabled: false
     local: false
-    src: ''
+    src: images/avatar.png
 
 colorScheme:
   toggle: true
