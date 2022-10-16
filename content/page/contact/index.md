@@ -2,6 +2,7 @@
 title: "Contact"
 layout: "contact"
 disableReadTime: true
+comments: true
 disableShare: true
 slug: "contact"
 toc: off
