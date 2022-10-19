@@ -66,17 +66,15 @@
   a {
     font-family: "Abril Fatface", sans-serif;
     color: var(--card-text-color-main);
-    text-transform: uppercase;
     -webkit-transition: color 0.5s;
     -moz-transition: color 0.5s;
     -o-transition: color 0.5s;
     transition: color 0.5s;    
-  }
+    &:hover {
+    text-decoration: underline;
+    } 
+   }
 
-    a:hover {
-      text-decoration: underline;
-      color: rgb(87, 132, 192);
-    }
 }
 
 .article-subtitle {

@@ -1,16 +1,16 @@
 a {
   text-decoration: none;
-    color: rgb(79, 143, 185);
-
+  color: var(--accent-color);
+    
   &:hover {
     transition: all 0.3s ease-in-out;
-    color: rgb(185, 236, 90);
+      color: var(--accent-color-darker);
   }
 }
 
 .section-title {
   text-transform: uppercase;
-  margin-top: 0;
+  margin-top: 0;    
   margin-bottom: 10px;
   display: block;
   font-size: 1.6rem;
