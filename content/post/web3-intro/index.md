@@ -21,7 +21,7 @@ Before you dive into web 3.0 you have to understand what are web 1.0 & web 2.0 a
 
 # Web 1.0
 
-![](https://cdn-images-1.medium.com/max/2000/1*pIEdz9hbI83ZHOseqblZ1g.gif)
+![](1.gif)
 
 Web 1.0 is the **Static** page on the internet where you as a user don’t interact with the server of the website, for example (Wikipedia, Documentations, Blogs).
 
@@ -33,7 +33,7 @@ The website doesn’t collect any data about its guests, therefore, all users ha
 
 # Web 2.0
 
-![](https://cdn-images-1.medium.com/max/2000/1*LkGW9Tq59_z9qvVTATiHiQ.jpeg)
+![](2.png)
 
 Getting to Web 2.0 was really revolutionary, it unlocked a lot of opportunities and possibilities for its clients through the **use of their data**. collecting user data from surfing on the internet makes the website know about you more than you know about yourself!!!
 
@@ -41,11 +41,11 @@ Getting to Web 2.0 was really revolutionary, it unlocked a lot of opportunities 
 
 Using your data websites can recommend to you ads that you are more likely gonna buy because they know your needs, and this is done using Data Analysis & AI Models and recommendation systems.
 
-**Notice** that on web 2.0 all the ***control **over the data *is in the hand of the company but not the user as in web 3.0 as explained further.
+**Notice** that on web 2.0 all the control over the data *is in the hand of the company but not the user as in web 3.0 as explained further.
 
-Those websites gain money from making you spend the most amount of your time on them because you are their **product, **by sticking you into their infinite loop of ads, posts, videos, stories. etc.
+Those websites gain money from making you spend the most amount of your time on them because you are their product, by sticking you into their infinite loop of ads, posts, videos, stories. etc.
 
-![](https://cdn-images-1.medium.com/max/2000/1*uB3p-BZ51TmOG1m2tizG9w.gif)
+![](3.gif)
 
 # Web 3.0
 
@@ -53,7 +53,7 @@ On web 3.0 you own your data not like before, which makes it more secure and saf
 
 It is based on the idea of Blockchain, but what does blockchain mean?
 
-![](https://cdn-images-1.medium.com/max/2000/1*JSHC52eFDB-hWF0q00JDgA.gif)
+![](4.gif)
 
 **Blockchain** is a set of transactions that are linked to each other which makes each block undeletable, but since you use your data to create a block won't that make anyone on the network get the details and data of your transaction?
 
@@ -72,21 +72,19 @@ But your wallet needs more than a private key, it needs another key that identif
 
 Once you have created your own block what is left is to add it to the chain, here is a diagram that explains who does that happen.
 
-![](https://cdn-images-1.medium.com/max/2000/1*pUqX3-TbFgHJJ-8aNt4g9A.png)
+![](5.png)
 
-For more understanding of how transactions are made visit [**Euromoney](https://www.euromoney.com/learning/blockchain-explained/how-transactions-get-into-the-blockchain).**
+For more understanding of how transactions are made visit [Euromoney](https://www.euromoney.com/learning/blockchain-explained/how-transactions-get-into-the-blockchain).
 
 # DAPP (Decentralized Application)
 
-![](https://cdn-images-1.medium.com/max/2800/1*h4QzH93fDW6DqO-AxKjduQ.png)
+![](6.png)
 
 DAPP means that the application is not owned by a specific company or organization, everything is completely transparent and viewable on the blockchain itself, making all the content on the apps completely unrestricted, This sounds good, but removing restrictions on people may lead to a mess due to the absence of censorship.
 
 Now let’s make some money and get into the business, for that we need an e-wallet since green papers are useless on web 3.0
 
-The most popular 1# wallet is **[MetaMask](https://metamask.io/)**
-
-![](https://cdn-images-1.medium.com/max/2000/1*fgEJ-WoPZ-h5tzIaK3Ij6g.png)
+The most popular 1# wallet is [MetaMask](https://metamask.io/)
 
 MetaMask allows you to manage your crypto, buy, save or make any transaction you want.
 
@@ -96,23 +94,23 @@ Now let’s buy some NFT and make some money, but do you know what is that even 
 
 There are 2 types of tokens around, FT & NFT
 
-A **fungible token **is a token that has the same price all over the network like cryptocurrency(ETH, BitCoin, etc)
+A **fungible token** is a token that has the same price all over the network like cryptocurrency(ETH, BitCoin, etc)
 > ETH = Another ETH
 
-![](https://cdn-images-1.medium.com/max/2000/1*w1Jm5AE549BTj5k6hacbTg.jpeg)
+![](7.png)
 
 But a **non-fungible** token is more like an asset, it has different prices depending on what they represent (digital art set, real state, etc).
 > NFT **!=** Another NFT
 
 Purchasing of course is made in cryptocurrency(ETH).
 
-You may ask why especially ETH but not any other crypto like BTC, well this is since on web 3.0 they commonly use the concept of Smart Contract which is supported on ETH and not BTC, for well understand of smart contract watch this [**video](https://www.youtube.com/watch?v=pyaIppMhuic&ab_channel=WhiteboardCrypto).**
+You may ask why especially ETH but not any other crypto like BTC, well this is since on web 3.0 they commonly use the concept of Smart Contract which is supported on ETH and not BTC, for well understand of smart contract watch this [video](https://www.youtube.com/watch?v=pyaIppMhuic&ab_channel=WhiteboardCrypto).
 
-Interested in buying or creating your first NFT token and making billions and trillions of dollars have a look at the most popular [**NFT marketplace](https://opensea.io/)**.
+Interested in buying or creating your first NFT token and making billions and trillions of dollars have a look at the most popular [NFT marketplace](https://opensea.io/).
 
 So, after all, that should you get into this HYPE ???
 
-**YES, **but more importantly is to ask when to do so, web 3.0 is like any newly created technology coming out, It is gonna have its ups & downs as any tech came before. so I recommend you just keep a link with it to join at the right time. for me, I am still discovering the potentials and of this field, Because I believe it is gonna be a life-changing TECH and I wanna get on the RIDE!!!
+**YES,** but more importantly is to ask when to do so, web 3.0 is like any newly created technology coming out, It is gonna have its ups & downs as any tech came before. so I recommend you just keep a link with it to join at the right time. for me, I am still discovering the potentials and of this field, Because I believe it is gonna be a life-changing TECH and I wanna get on the RIDE!!!
 
 P.S I have made a UI Application that works with life BC that creates a block and adds it to a live BC you can have a look at it on my [Git](https://github.com/AhmedHelay/Blockchain-UI).
 
@@ -126,6 +124,6 @@ P.S I have made a UI Application that works with life BC that creates a block an
 
 * [White Board Crypto explains NFT](https://www.youtube.com/watch?v=4dkl5O9LOKg&ab_channel=WhiteboardCrypto)
 
-* [Article Gifs](https://giphy.com/)
+* [Article gifs](https://giphy.com/)
 
-![](https://cdn-images-1.medium.com/max/2000/1*upds9oU3Sf4AGMZCCJ6s0g.gif)
+![](8.gif)
