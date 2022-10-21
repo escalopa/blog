@@ -7,3 +7,4 @@ hasCJKLanguage: false
 googleAnalytics: G-D3MHJ8D3LS
 disqusShortname: escalopa-live
 pygmentsUseClassic: false
+timeout: "60s"
