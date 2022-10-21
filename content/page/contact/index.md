@@ -1,7 +1,7 @@
 ---
 title: "Contact"
 layout: "contact"
-disableReadTime: true
+readingTime: false
 comments: true
 disableShare: true
 slug: "contact"
