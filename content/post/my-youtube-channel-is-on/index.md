@@ -6,7 +6,6 @@ image: cover.png
 categories:
     - Personal
 comments: true
-draft: false
 ---
 
 

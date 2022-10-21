@@ -4,7 +4,6 @@ description:
 slug: web3-intro
 date: 2022-01-06 00:00:00+0000
 image: cover.png
-draft: false
 categories:
     - web3 
 tags:
