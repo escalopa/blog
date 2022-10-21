@@ -10,7 +10,7 @@ tags:
     - gdm3
     - linux display-managers
 comments: true
-draft: false
+draft: true
 ---
 
 # How it started
