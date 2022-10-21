@@ -6,10 +6,8 @@ tableOfContents:
     ordered: true
     startLevel: 1
 highlight:
-    noClasses: true
+    noClasses: true 
     codeFences: true
     guessSyntax: true
-    lineNoStart: 1
-    lineNos: true
     lineNumbersInTable: false
     tabWidth: 2
