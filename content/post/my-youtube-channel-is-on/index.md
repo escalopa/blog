@@ -1,6 +1,6 @@
 ---
 title: "My Youtube Channel Is On"
-description: 
+description: "My youtube release channel article, why I made the channel & where I am going"
 date: 2022-10-21T03:35:07+03:00
 image: cover.png
 categories:

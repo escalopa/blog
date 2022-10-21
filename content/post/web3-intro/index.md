@@ -1,15 +1,16 @@
 ---
-title: Web 3.0 Secrets — All What You MUST know about Web 3.0 & NFT
-description: 
-slug: web3-intro
-date: 2022-01-06 00:00:00+0000
+title: "Web 3.0 Secrets — All What You MUST know about Web 3.0 & NFT"
+description: "A peek into the new web 3.0 world and it's most popular features"
+slug: "web3-intro"
+date: 2022-10-06T03:35:07+03:00
 image: cover.png
 categories:
-    - web3 
+    - Web3 
 tags:
     - nft
     - crypto
     - blockchain 
+comments: true
 ---
 
 Imagine that you have the power to own your data, make transactions without fees, generate your own assets, would it be great? Well, with Web 3.0 obtaining this power is POSSIBLE!
