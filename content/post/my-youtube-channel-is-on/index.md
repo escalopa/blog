@@ -11,7 +11,7 @@ comments: true
 
 ## The Day
 
-Yes you read that correct!! I am on youtube now and here is **[the channel](https://www.youtube.com/channel/UCTRWpJE0OTZDasrGDgK3Klw)**
+Yes you read that correct!! I am on youtube now and here is **[the channel](https://www.youtube.com/@escalopa)**
 
 **On the 21th of October 2022**, I started my youtube channel to document my journey and monitor my progress.
 
