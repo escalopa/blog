@@ -10,6 +10,7 @@ tags:
     - rhel
     - selinux
 comments: true
+draft: true
 ---
 
 # Controlling Services and the Boot Process

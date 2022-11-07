@@ -44,8 +44,6 @@ I want to prove to everyone that he can make it, make them feel that I have been
 
 ## The purpose & the cause
 
-![](road.png)
-
 ### Why I will do it 
 In my childhood, I felt that I have the ability to make something great and help others around me but I always had this thought in my mind
 
@@ -67,7 +65,6 @@ I believe that all it takes someone to change is to believe he can change, educa
 I aim to climb to the top of the mountain by helping others in their lives, this startup dream will be great in that it will affect the HUMAN RACE itself. I know this sounds crazy but
 >If people don't laugh at your goals, your goals are too small
 
----
 ### How I will do it
 
 Finding a purpose in life is not enough, Without a plan you will never get there, so I need to create 
@@ -76,5 +73,3 @@ Finding a purpose in life is not enough, Without a plan you will never get there
 >Focus on you, you grow, Focus on shit, shit grows.
 
 ### What will I do  
-
----

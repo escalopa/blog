@@ -3,19 +3,25 @@ social:
     name: GitHub
     url: 'https://github.com/escalopa'
     params:
-      icon: brand-github
+      icon: github-home
   - identifier: twitter
     name: Twitter
     url: 'https://twitter.com/escalopaPapi'
     params:
-      icon: brand-twitter
+      icon: twitter-home
   - identifier: linkedin
     name: Linkedin
     url: 'https://www.linkedin.com/in/ahmad-helaly-53b5b9236/'
     params:
-      icon: linkedin
+      icon: linkedin-home
   - identifier: stackoverflow
     name: Stackoverflow
     url: 'https://stackoverflow.com/users/14295533/escapola'
     params:
-      icon: brand-stackoverflow
+      icon: stackoverflow
+  - identifier: youtube
+    name: Youtube
+    url: 'https://youtube.com/@escalopa'
+    params:
+      icon: youtube-home
+
