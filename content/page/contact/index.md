@@ -6,6 +6,7 @@ comments: true
 disableShare: true
 slug: "contact"
 toc: off
+comments: false
 menu:
     main:
         weight: 2
@@ -13,11 +14,15 @@ menu:
             icon: contact
 ---
 
-## Hey my new friend !
+## Yooo, As-salamu alaykum 😀
 
-I am more than happy than you are interested in contacting with me.
+Looks like you are looking forward to talk with me 😁
 
-Here are my contacts, looking forward to contact with you.
+Well I am more than happy to make new friends 🤗
+
+What are you waiting for😴
+
+Here are my contracts down below 👇, message me 🤙 anywhere anytime ( prefer telegram 📞 )
 
 [![](telegram.svg)](https://t.me/escalopas)
 [![](twitter.svg)](https://twitter.com/escalopaPapi)
