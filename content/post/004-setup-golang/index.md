@@ -7,7 +7,7 @@ hidden: false
 categories:
     - Golang
 comments: true
-draft: true
+draft: false
 ---
 
 # Welcome GOPHER!
