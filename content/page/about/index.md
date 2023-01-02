@@ -12,7 +12,21 @@ menu:
             icon: me
 ---
 
-## Start in the unknown 
+## About Me
+
+Hey, I am a ethentisiatic software developer, already have 3 years of exp with coding, I from Egypt currently living in Russia, Studying at the faculty of ITIS at Kazan Federal University(Year of grad = 2024). 
+
+Writing code is a alredy a habit that I like to do, But most importantly is building cool projects that affect people's lives and make their's life better.
+
+Currently my stack is **Golang**, **Postgres**, **Redis**, **Rest API**, **gRPC** And some **React**, But In general I am open to learning new things in backend or cloud developement.
+
+Use **Docker** for deployment, Also has exp with **Linux System**, Besides setting up a server from scratch and configuring it with **Nginx** & **Iptables**.
+
+I am a **Linux** User, Exactuly **Kali Linux**, Also have windows as 2nd OS
+
+On free time, I go to gym, read books, or play lol with friends.
+
+<!-- ## Start in the unknown 
 I decided to travel to Russia to continue my education for the sake of finding a community that shares a common interest as me or a person who can be my partner in this journey of life, sharing our moments together and encouraging each other to make a change  
 
 ### Belief 
@@ -72,4 +86,4 @@ Finding a purpose in life is not enough, Without a plan you will never get there
 >No one who gave his best regretted it  
 >Focus on you, you grow, Focus on shit, shit grows.
 
-### What will I do  
+### What will I do   -->
