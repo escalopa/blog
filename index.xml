@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ahmad Helaly</title><link>https://escalopa.live/</link><description>Recent content on Ahmad Helaly</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 03 Dec 2022 23:51:12 +0300</lastBuildDate><atom:link href="https://escalopa.live/index.xml" rel="self" type="application/rss+xml"/><item><title>Gobank</title><link>https://escalopa.live/p/gobank/</link><pubDate>Sat, 03 Dec 2022 23:51:12 +0300</pubDate><guid>https://escalopa.live/p/gobank/</guid><description>&lt;img src="https://escalopa.live/p/gobank/cover.png" alt="Featured image of post Gobank" />&lt;h2 id="gobank">gobank&lt;/h2>
+&lt;p>Yo
+In this article I&amp;rsquo;ll be talking about my latest but not least project on golang &lt;code>GOBANK&lt;/code>&lt;/p>
+&lt;p>The project is a simple implementation of a bank service&lt;/p>
+&lt;p>I have learned a lot on this course like&lt;/p>
+&lt;ol>
+&lt;li>gin&lt;/li>
+&lt;li>grpc&lt;/li>
+&lt;li>protobuf&lt;/li>
+&lt;li>sqlc&lt;/li>
+&lt;li>Makefile&lt;/li>
+&lt;/ol>
+&lt;p>And that is just to name a few&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/escalopa/gobank" target="_blank" rel="noopener"
+>gobank repo link&lt;/a>&lt;/p>
+&lt;hr>
+&lt;hr>
+&lt;p>Now let&amp;rsquo;s actually dive in what this project is all about&lt;/p>
+&lt;h2 id="structure">Structure&lt;/h2>
+&lt;p>I am only gonna mention the most important dirs&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;h3 id="database">&lt;strong>DATABASE&lt;/strong>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>db&lt;/code> is the dir responsible to handel all the following&lt;/p>
+&lt;ol>
+&lt;li>make db transaction(with tests)&lt;/li>
+&lt;li>store schema &amp;amp; queries used by sqlc to generate&lt;/li>
+&lt;li>sqlc generated code to interact with db&lt;/li>
+&lt;li>&lt;code>mock db&lt;/code> which is a sub package under &lt;code>db&lt;/code> that just mocks the db calls, extensively used in api testing&lt;/li>
+&lt;/ol>
+&lt;p>So now i think it might be a good time to show the db schema of that project&lt;/p>
+&lt;p>&lt;img src="https://escalopa.live/gobank-schema.png"
+loading="lazy"
+alt="gobank-schema"
+>&lt;/p>
+&lt;p>Actually working with &lt;code>sqlc&lt;/code> was so useful since it automates a lot of db stuff instead of making it yourself, I also prefer to use it over &lt;code>gorm&lt;/code> because first it is faster &amp;amp; it strengths you sql in some manner since you will have to write some queries by yourself.&lt;/p>
+&lt;p>So in the next section I&amp;rsquo;ll be going on depth on how I the db relations work.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;h3 id="api">&lt;strong>API&lt;/strong>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;p>In this project I decided to go with &lt;code>gin&lt;/code> a golang web framework.&lt;/p>
+&lt;p>It had a lot of features that eases the handling of requests&lt;/p>
+&lt;ul>
+&lt;li>request params validations&lt;/li>
+&lt;li>error handling&lt;/li>
+&lt;li>convenient interface functions to work with&lt;/li>
+&lt;li>bind data from json, uri &amp;amp; query&lt;/li>
+&lt;/ul>
+&lt;p>So in short the gin server was handling the following request&lt;/p>
+&lt;h3 id="endpoints">&lt;strong>ENDPOINTS&lt;/strong>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">gin&lt;/span>.&lt;span style="color:#a6e22e">Default&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">Group&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">Use&lt;/span>(&lt;span style="color:#a6e22e">authMiddleware&lt;/span>(&lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">tokenMaker&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Account Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">createAccount&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">GET&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts/:id&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">getAccount&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">GET&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">listAccounts&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">DELETE&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts/:id&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">deleteAccounts&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Transfer Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/transfers&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">createTransfer&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// User Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">GET&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users/:username&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">getUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">PATCH&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">updateUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Unauthenticated Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">createUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users/login&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">loginUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users/renew&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">renewAccessToken&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">router&lt;/span> = &lt;span style="color:#a6e22e">router&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you can see some requests require authentication, for token creating and verifying I used &lt;a class="link" href="https://paseto.io/" target="_blank" rel="noopener"
+>paseto&lt;/a>, Which is a very powerful secured token issuer, even better than &lt;code>JWT&lt;/code>, But anyway I have implemented both approaches toa get the most out of this project&lt;/p>
+&lt;p>Here is the &lt;a class="link" href="https://github.com/escalopa/gobank/tree/main/token" target="_blank" rel="noopener"
+>token makers implementation&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;h3 id="gapi">&lt;strong>gapi&lt;/strong>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;p>Well now we are getting to the most important part of this project, the &lt;code>gapi&lt;/code> package&lt;/p>
+&lt;p>It was the first time I was working with &lt;code>grpc&lt;/code> and &lt;code>protobuf&lt;/code> and I have to say it was a great experience since it is a very powerful tool to work with.&lt;/p>
+&lt;p>In the grpc server I didn&amp;rsquo;t implement all the endpoints, that was implemented in the gin server, but I did implement the following&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Auth gRPC calls
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">Login&lt;/span>(&lt;span style="color:#a6e22e">LoginRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">LoginResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// service created but not implemented
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">Logout&lt;/span>(&lt;span style="color:#a6e22e">LogoutRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">google&lt;/span>.&lt;span style="color:#a6e22e">protobuf&lt;/span>.&lt;span style="color:#a6e22e">Empty&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// User gRPC calls
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">CreateUser&lt;/span>(&lt;span style="color:#a6e22e">UserRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">UserResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">GetUser&lt;/span>(&lt;span style="color:#a6e22e">Username&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">UserResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">UpdateUser&lt;/span>(&lt;span style="color:#a6e22e">UserUpdateRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">UserResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">DeleteUser&lt;/span>(&lt;span style="color:#a6e22e">Username&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">google&lt;/span>.&lt;span style="color:#a6e22e">protobuf&lt;/span>.&lt;span style="color:#a6e22e">Empty&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For more in depth check the &lt;a class="link" href="https://github.com/escalopa/gobank/tree/main/gapi" target="_blank" rel="noopener"
+>gapi&lt;/a> dir&lt;/p>
+&lt;p>So yeah, that&amp;rsquo;s all for this article it was a nice project to work on and have learned a lot from it.&lt;/p>
+&lt;p>I hope you enjoyed it and if you have any questions or suggestions feel free to contact me on &lt;a class="link" href="https://t.me/escalopas" target="_blank" rel="noopener"
+>telergram&lt;/a>&lt;/p></description></item><item><title>Running your first Golong code today</title><link>https://escalopa.live/p/running-your-first-golong-code-today/</link><pubDate>Thu, 24 Nov 2022 02:19:05 +0300</pubDate><guid>https://escalopa.live/p/running-your-first-golong-code-today/</guid><description>&lt;img src="https://escalopa.live/p/running-your-first-golong-code-today/cover.png" alt="Featured image of post Running your first Golong code today" />&lt;h1 id="welcome-gopher">Welcome GOPHER!&lt;/h1>
+&lt;p>Today we will be setting the env for needed to run golang code on your machine&lt;/p>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Download go runtime from the &lt;a class="link" href="https://go.dev/dl/" target="_blank" rel="noopener"
+>main site&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Remove the old go runtime(If you have go already installed)&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ rm -rf /usr/local/go
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>Unzip the download file into &lt;code>/usr/local/&lt;/code> with the following command&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="setting-up-gopath">Setting up GOPATH&lt;/h2>
+&lt;ol>
+&lt;li>Add &lt;code>GOPATH&lt;/code> to the &lt;code>PATHS&lt;/code> by editing the shell source file&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>export PATH=PATH:/usr/local/go/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>Note: The shell source file is like &lt;code>.bashrc&lt;/code>, &lt;code>.zshrc&lt;/code>, It depends on the current running shell on your machine&lt;/p>
+&lt;/blockquote>
+&lt;p>Afterwards to update the changes run&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ source SHELL_FILE
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now everything is set up the following command should work, Note that the output version might differ on your machine&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ go version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go version go1.19.2 linux/amd64
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s all for this article, Wish it was helpful.&lt;/p>
+&lt;p>If you have any questions or got stuch with some problems leave in the comments below or message me&lt;/p></description></item><item><title>My Youtube Channel Is On</title><link>https://escalopa.live/p/my-youtube-channel-is-on/</link><pubDate>Fri, 21 Oct 2022 03:35:07 +0300</pubDate><guid>https://escalopa.live/p/my-youtube-channel-is-on/</guid><description>&lt;img src="https://escalopa.live/p/my-youtube-channel-is-on/cover.png" alt="Featured image of post My Youtube Channel Is On" />&lt;h2 id="the-day">The Day&lt;/h2>
+&lt;p>Yes you read that correct!! I am on youtube now and here is &lt;strong>&lt;a class="link" href="https://www.youtube.com/@escalopa" target="_blank" rel="noopener"
+>the channel&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>On the 21th of October 2022&lt;/strong>, I started my youtube channel to document my journey and monitor my progress.&lt;/p>
+&lt;p>If took my a while to actually know how to use OBS Studio for recording, besides that I was soo nervous talking in front of the camera, I felt this blood pressure rising, fast heart beats, But I am more than sure that it is just a matter of time and everything will change.&lt;/p>
+&lt;p>Today is the born of a new me who wants to become valuable to the society and achieve something good maybe I am not good at something now, But I believe in the quote&lt;/p>
+&lt;blockquote>
+&lt;p>To become good you have to be bad and to become bad you have to try.&lt;/p>
+&lt;/blockquote>
+&lt;p>This is the start of the path to find the real me. I don&amp;rsquo;t feel my self working a 9 to 5 job(despite I haven&amp;rsquo;t worked yet 😄), So as my brother once told me&lt;/p>
+&lt;blockquote>
+&lt;p>If don&amp;rsquo;t know where to go then start walking.&lt;/p>
+&lt;/blockquote>
+&lt;p>So this is all for this article. Stay tuned for more!&lt;/p></description></item><item><title>Web 3.0 Secrets — All What You MUST know about Web 3.0 &amp; NFT</title><link>https://escalopa.live/p/web3-intro/</link><pubDate>Thu, 06 Oct 2022 03:35:07 +0300</pubDate><guid>https://escalopa.live/p/web3-intro/</guid><description>&lt;img src="https://escalopa.live/p/web3-intro/cover.png" alt="Featured image of post Web 3.0 Secrets — All What You MUST know about Web 3.0 &amp; NFT" />&lt;p>Imagine that you have the power to own your data, make transactions without fees, generate your own assets, would it be great? Well, with Web 3.0 obtaining this power is POSSIBLE!&lt;/p>
+&lt;p>And in this article, you will know the secrets behind web 3.0 and how you can generate the maximum profit out of it before the masses know it.&lt;/p>
+&lt;p>Before you dive into web 3.0 you have to understand what are web 1.0 &amp;amp; web 2.0 are to fully get why web 3.0 is revolutionary.&lt;/p>
+&lt;h1 id="web-10">Web 1.0&lt;/h1>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/1.gif"
+width="499"
+height="365"
+srcset="https://escalopa.live/p/web3-intro/1_hu17e6fbc4adeabb88af19ccb2cc7bb631_180795_480x0_resize_box_1.gif 480w, https://escalopa.live/p/web3-intro/1_hu17e6fbc4adeabb88af19ccb2cc7bb631_180795_1024x0_resize_box_1.gif 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="136"
+data-flex-basis="328px"
+>&lt;/p>
+&lt;p>Web 1.0 is the &lt;strong>Static&lt;/strong> page on the internet where you as a user don’t interact with the server of the website, for example (Wikipedia, Documentations, Blogs).&lt;/p>
+&lt;p>You just surf the website information, reading its content without the ability to edit or change it.&lt;/p>
+&lt;p>Most of these websites are not profitable, since they don&amp;rsquo;t support ads, leading to no source of income.&lt;/p>
+&lt;p>The website doesn’t collect any data about its guests, therefore, all users have the same page loading up not like on web 2.0 as we will see further. These websites are commonly called &lt;strong>Read-only&lt;/strong> websites.&lt;/p>
+&lt;h1 id="web-20">Web 2.0&lt;/h1>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/2.png"
+width="300"
+height="168"
+srcset="https://escalopa.live/p/web3-intro/2_hue48a75cba8177f659dbe12c03aee3ffb_19649_480x0_resize_box_3.png 480w, https://escalopa.live/p/web3-intro/2_hue48a75cba8177f659dbe12c03aee3ffb_19649_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="178"
+data-flex-basis="428px"
+>&lt;/p>
+&lt;p>Getting to Web 2.0 was really revolutionary, it unlocked a lot of opportunities and possibilities for its clients through the &lt;strong>use of their data&lt;/strong>. collecting user data from surfing on the internet makes the website know about you more than you know about yourself!!!&lt;/p>
+&lt;p>&lt;strong>Web 2.0 Examples&lt;/strong> are all around you Facebook, google, youtube, Instagram, e-commerce and so more.&lt;/p>
+&lt;p>Using your data websites can recommend to you ads that you are more likely gonna buy because they know your needs, and this is done using Data Analysis &amp;amp; AI Models and recommendation systems.&lt;/p>
+&lt;p>&lt;strong>Notice&lt;/strong> that on web 2.0 all the control over the data *is in the hand of the company but not the user as in web 3.0 as explained further.&lt;/p>
+&lt;p>Those websites gain money from making you spend the most amount of your time on them because you are their product, by sticking you into their infinite loop of ads, posts, videos, stories. etc.&lt;/p>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/3.gif"
+width="480"
+height="270"
+srcset="https://escalopa.live/p/web3-intro/3_hucc849379d52cd56f8738f08c80a8ea3a_7176734_480x0_resize_box_1.gif 480w, https://escalopa.live/p/web3-intro/3_hucc849379d52cd56f8738f08c80a8ea3a_7176734_1024x0_resize_box_1.gif 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;/p>
+&lt;h1 id="web-30">Web 3.0&lt;/h1>
+&lt;p>On web 3.0 you own your data not like before, which makes it more secure and safe for all users.&lt;/p>
+&lt;p>It is based on the idea of Blockchain, but what does blockchain mean?&lt;/p>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/4.gif"
+width="512"
+height="512"
+srcset="https://escalopa.live/p/web3-intro/4_hu94745f7fdfeac94980f8c81fee8759f3_2554902_480x0_resize_box_1.gif 480w, https://escalopa.live/p/web3-intro/4_hu94745f7fdfeac94980f8c81fee8759f3_2554902_1024x0_resize_box_1.gif 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>&lt;strong>Blockchain&lt;/strong> is a set of transactions that are linked to each other which makes each block undeletable, but since you use your data to create a block won&amp;rsquo;t that make anyone on the network get the details and data of your transaction?&lt;/p>
+&lt;p>Well no, When you create a block you secure it by hashing all data using your private key.&lt;/p>
+&lt;p>But what does a private key mean?&lt;/p>
+&lt;p>&lt;strong>A private key&lt;/strong> is a password you use to send Transactions and Payments from your wallet to others by signing your transaction block with it.&lt;/p>
+&lt;p>Of course, I recommend you to save it somewhere offline(hard disk, flash drive), because whoever has this key owns your money.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Private Key = Your Wallet&lt;/strong>&lt;/p>
+&lt;/blockquote>
+&lt;p>But your wallet needs more than a private key, it needs another key that identifies the wallet address to receive transactions, for that public key comes to place.&lt;/p>
+&lt;p>&lt;strong>A public key&lt;/strong> is an address, which is used to receive transactions on your wallet.&lt;/p>
+&lt;p>Once you have created your own block what is left is to add it to the chain, here is a diagram that explains who does that happen.&lt;/p>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/5.png"
+width="800"
+height="500"
+srcset="https://escalopa.live/p/web3-intro/5_hu2b5367a9f4da37f832f3df9136c5b0da_68057_480x0_resize_box_3.png 480w, https://escalopa.live/p/web3-intro/5_hu2b5367a9f4da37f832f3df9136c5b0da_68057_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="160"
+data-flex-basis="384px"
+>&lt;/p>
+&lt;p>For more understanding of how transactions are made visit &lt;a class="link" href="https://www.euromoney.com/learning/blockchain-explained/how-transactions-get-into-the-blockchain" target="_blank" rel="noopener"
+>Euromoney&lt;/a>.&lt;/p>
+&lt;h1 id="dapp-decentralized-application">DAPP (Decentralized Application)&lt;/h1>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/6.png"
+width="1400"
+height="973"
+srcset="https://escalopa.live/p/web3-intro/6_hu73d224572d9a5ed155fe55ab82035c5a_333198_480x0_resize_box_3.png 480w, https://escalopa.live/p/web3-intro/6_hu73d224572d9a5ed155fe55ab82035c5a_333198_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="143"
+data-flex-basis="345px"
+>&lt;/p>
+&lt;p>DAPP means that the application is not owned by a specific company or organization, everything is completely transparent and viewable on the blockchain itself, making all the content on the apps completely unrestricted, This sounds good, but removing restrictions on people may lead to a mess due to the absence of censorship.&lt;/p>
+&lt;p>Now let’s make some money and get into the business, for that we need an e-wallet since green papers are useless on web 3.0&lt;/p>
+&lt;p>The most popular 1# wallet is &lt;a class="link" href="https://metamask.io/" target="_blank" rel="noopener"
+>MetaMask&lt;/a>&lt;/p>
+&lt;p>MetaMask allows you to manage your crypto, buy, save or make any transaction you want.&lt;/p>
+&lt;p>Now let’s buy some NFT and make some money, but do you know what is that even is??&lt;/p>
+&lt;h1 id="nft-non-fungible-token">NFT (Non-fungible Token)&lt;/h1>
+&lt;p>There are 2 types of tokens around, FT &amp;amp; NFT&lt;/p>
+&lt;p>A &lt;strong>fungible token&lt;/strong> is a token that has the same price all over the network like cryptocurrency(ETH, BitCoin, etc)&lt;/p>
+&lt;blockquote>
+&lt;p>ETH = Another ETH&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/7.png"
+width="810"
+height="524"
+srcset="https://escalopa.live/p/web3-intro/7_hu80cfc00a9e192849492af93104e2069f_49215_480x0_resize_box_3.png 480w, https://escalopa.live/p/web3-intro/7_hu80cfc00a9e192849492af93104e2069f_49215_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="154"
+data-flex-basis="370px"
+>&lt;/p>
+&lt;p>But a &lt;strong>non-fungible&lt;/strong> token is more like an asset, it has different prices depending on what they represent (digital art set, real state, etc).&lt;/p>
+&lt;blockquote>
+&lt;p>NFT &lt;strong>!=&lt;/strong> Another NFT&lt;/p>
+&lt;/blockquote>
+&lt;p>Purchasing of course is made in cryptocurrency(ETH).&lt;/p>
+&lt;p>You may ask why especially ETH but not any other crypto like BTC, well this is since on web 3.0 they commonly use the concept of Smart Contract which is supported on ETH and not BTC, for well understand of smart contract watch this &lt;a class="link" href="https://www.youtube.com/watch?v=pyaIppMhuic&amp;amp;ab_channel=WhiteboardCrypto" target="_blank" rel="noopener"
+>video&lt;/a>.&lt;/p>
+&lt;p>Interested in buying or creating your first NFT token and making billions and trillions of dollars have a look at the most popular &lt;a class="link" href="https://opensea.io/" target="_blank" rel="noopener"
+>NFT marketplace&lt;/a>.&lt;/p>
+&lt;p>So, after all, that should you get into this HYPE ???&lt;/p>
+&lt;p>&lt;strong>YES,&lt;/strong> but more importantly is to ask when to do so, web 3.0 is like any newly created technology coming out, It is gonna have its ups &amp;amp; downs as any tech came before. so I recommend you just keep a link with it to join at the right time. for me, I am still discovering the potentials and of this field, Because I believe it is gonna be a life-changing TECH and I wanna get on the RIDE!!!&lt;/p>
+&lt;p>P.S I have made a UI Application that works with life BC that creates a block and adds it to a live BC you can have a look at it on my &lt;a class="link" href="https://github.com/AhmedHelay/Blockchain-UI" target="_blank" rel="noopener"
+>Git&lt;/a>.&lt;/p>
+&lt;h1 id="references">References&lt;/h1>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=wHTcrmhskto&amp;amp;ab_channel=Fireship" target="_blank" rel="noopener"
+>FireShip Video on Web 3.0&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=nHhAEkG1y2U&amp;amp;t=447s&amp;amp;ab_channel=WhiteboardCrypto" target="_blank" rel="noopener"
+>White Board Crypto explain Web 3.0&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=nHhAEkG1y2U&amp;amp;t=447s&amp;amp;ab_channel=WhiteboardCrypto" target="_blank" rel="noopener"
+>BC Transaction process&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=4dkl5O9LOKg&amp;amp;ab_channel=WhiteboardCrypto" target="_blank" rel="noopener"
+>White Board Crypto explains NFT&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://giphy.com/" target="_blank" rel="noopener"
+>Article gifs&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://escalopa.live/p/web3-intro/8.gif"
+width="499"
+height="366"
+srcset="https://escalopa.live/p/web3-intro/8_hu475474a65f4e1ebc40d7f6d42fcf4dd2_351171_480x0_resize_box_1.gif 480w, https://escalopa.live/p/web3-intro/8_hu475474a65f4e1ebc40d7f6d42fcf4dd2_351171_1024x0_resize_box_1.gif 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="136"
+data-flex-basis="327px"
+>&lt;/p></description></item><item><title>Archives</title><link>https://escalopa.live/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://escalopa.live/archives/</guid><description/></item><item><title>About Me</title><link>https://escalopa.live/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://escalopa.live/about/</guid><description>&lt;h2 id="about-me">About Me&lt;/h2>
+&lt;p>Hey, I am a ethentisiatic software developer, already have 3 years of exp with coding, I from Egypt currently living in Russia, Studying at the faculty of ITIS at Kazan Federal University(Year of grad = 2024).&lt;/p>
+&lt;p>Writing code is a alredy a habit that I like to do, But most importantly is building cool projects that affect people&amp;rsquo;s lives and make their&amp;rsquo;s life better.&lt;/p>
+&lt;p>Currently my stack is &lt;strong>Golang&lt;/strong>, &lt;strong>Postgres&lt;/strong>, &lt;strong>Redis&lt;/strong>, &lt;strong>Rest API&lt;/strong>, &lt;strong>gRPC&lt;/strong> And some &lt;strong>React&lt;/strong>, But In general I am open to learning new things in backend or cloud developement.&lt;/p>
+&lt;p>Use &lt;strong>Docker&lt;/strong> for deployment, Also has exp with &lt;strong>Linux System&lt;/strong>, Besides setting up a server from scratch and configuring it with &lt;strong>Nginx&lt;/strong> &amp;amp; &lt;strong>Iptables&lt;/strong>.&lt;/p>
+&lt;p>I am a &lt;strong>Linux&lt;/strong> User, Exactuly &lt;strong>Kali Linux&lt;/strong>, Also have windows as 2nd OS&lt;/p>
+&lt;p>On free time, I go to gym, read books, or play lol with friends.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>Contact</title><link>https://escalopa.live/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://escalopa.live/contact/</guid><description>&lt;h2 id="yooo-as-salamu-alaykum-">Yooo, As-salamu alaykum 😀&lt;/h2>
+&lt;p>Looks like you are looking forward to talk with me 😁&lt;/p>
+&lt;p>Well I am more than happy to make new friends 🤗&lt;/p>
+&lt;p>What are you waiting for😴&lt;/p>
+&lt;p>Here are my contracts down below 👇, message me 🤙 anywhere anytime ( prefer telegram 📞 )&lt;/p>
+&lt;p>&lt;a class="link" href="https://t.me/escalopas" target="_blank" rel="noopener"
+>&lt;img src="https://escalopa.live/contact/telegram.svg"
+loading="lazy"
+>&lt;/a>
+&lt;a class="link" href="https://twitter.com/escalopaPapi" target="_blank" rel="noopener"
+>&lt;img src="https://escalopa.live/contact/twitter.svg"
+loading="lazy"
+>&lt;/a>
+&lt;a class="link" href="https://www.linkedin.com/in/ahmad-helaly-53b5b9236/" target="_blank" rel="noopener"
+>&lt;img src="https://escalopa.live/contact/linkedin.svg"
+loading="lazy"
+>&lt;/a>
+&lt;a class="link" href="mailto:ahmad.helaly.dev@gmail.com?body=Hello%20Ahmad" >&lt;img src="https://escalopa.live/contact/gmail.svg"
+loading="lazy"
+>&lt;/a>&lt;/p></description></item><item><title>Search</title><link>https://escalopa.live/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://escalopa.live/search/</guid><description/></item></channel></rss>
