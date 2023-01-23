@@ -51,7 +51,7 @@ I am only gonna mention the most important dirs
   
 So now i think it might be a good time to show the db schema of that project
 
-![gobank-schema](./gobank-schema.png)
+![gobank-schema](gobank-schema.png)
 
 Actually working with `sqlc` was so useful since it automates a lot of db stuff instead of making it yourself, I also prefer to use it over `gorm` because first it is faster & it strengths you sql in some manner since you will have to write some queries by yourself.
 
