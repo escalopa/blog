@@ -32,8 +32,6 @@ And that is just to name a few
 
 ---
 
----
-
 Now let's actually dive in what this project is all about
 
 ## Structure
