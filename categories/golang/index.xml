@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Ahmad Helaly</title><link>https://escalopa.live/categories/golang/</link><description>Recent content in Golang on Ahmad Helaly</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 03 Dec 2022 23:51:12 +0300</lastBuildDate><atom:link href="https://escalopa.live/categories/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Gobank</title><link>https://escalopa.live/p/gobank/</link><pubDate>Sat, 03 Dec 2022 23:51:12 +0300</pubDate><guid>https://escalopa.live/p/gobank/</guid><description>&lt;img src="https://escalopa.live/p/gobank/cover.png" alt="Featured image of post Gobank" />&lt;h2 id="gobank">gobank&lt;/h2>
+&lt;p>Yo
+In this article I&amp;rsquo;ll be talking about my latest but not least project on golang &lt;code>GOBANK&lt;/code>&lt;/p>
+&lt;p>The project is a simple implementation of a bank service&lt;/p>
+&lt;p>I have learned a lot on this course like&lt;/p>
+&lt;ol>
+&lt;li>gin&lt;/li>
+&lt;li>grpc&lt;/li>
+&lt;li>protobuf&lt;/li>
+&lt;li>sqlc&lt;/li>
+&lt;li>Makefile&lt;/li>
+&lt;/ol>
+&lt;p>And that is just to name a few&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/escalopa/gobank" target="_blank" rel="noopener"
+>gobank repo link&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>Now let&amp;rsquo;s actually dive in what this project is all about&lt;/p>
+&lt;h2 id="structure">Structure&lt;/h2>
+&lt;p>I am only gonna mention the most important dirs&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;h3 id="database">&lt;strong>DATABASE&lt;/strong>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>db&lt;/code> is the dir responsible to handel all the following&lt;/p>
+&lt;ol>
+&lt;li>make db transaction(with tests)&lt;/li>
+&lt;li>store schema &amp;amp; queries used by sqlc to generate&lt;/li>
+&lt;li>sqlc generated code to interact with db&lt;/li>
+&lt;li>&lt;code>mock db&lt;/code> which is a sub package under &lt;code>db&lt;/code> that just mocks the db calls, extensively used in api testing&lt;/li>
+&lt;/ol>
+&lt;p>So now i think it might be a good time to show the db schema of that project&lt;/p>
+&lt;p>&lt;img src="https://escalopa.live/p/gobank/gobank-schema.png"
+width="1027"
+height="831"
+srcset="https://escalopa.live/p/gobank/gobank-schema_hu9f7b3cf4e76d84ce8d82444dec07c448_94499_480x0_resize_box_3.png 480w, https://escalopa.live/p/gobank/gobank-schema_hu9f7b3cf4e76d84ce8d82444dec07c448_94499_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="gobank-schema"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="296px"
+>&lt;/p>
+&lt;p>Actually working with &lt;code>sqlc&lt;/code> was so useful since it automates a lot of db stuff instead of making it yourself, I also prefer to use it over &lt;code>gorm&lt;/code> because first it is faster &amp;amp; it strengths you sql in some manner since you will have to write some queries by yourself.&lt;/p>
+&lt;p>So in the next section I&amp;rsquo;ll be going on depth on how I the db relations work.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;h3 id="api">&lt;strong>API&lt;/strong>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;p>In this project I decided to go with &lt;code>gin&lt;/code> a golang web framework.&lt;/p>
+&lt;p>It had a lot of features that eases the handling of requests&lt;/p>
+&lt;ul>
+&lt;li>request params validations&lt;/li>
+&lt;li>error handling&lt;/li>
+&lt;li>convenient interface functions to work with&lt;/li>
+&lt;li>bind data from json, uri &amp;amp; query&lt;/li>
+&lt;/ul>
+&lt;p>So in short the gin server was handling the following request&lt;/p>
+&lt;h3 id="endpoints">&lt;strong>ENDPOINTS&lt;/strong>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">gin&lt;/span>.&lt;span style="color:#a6e22e">Default&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">Group&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">Use&lt;/span>(&lt;span style="color:#a6e22e">authMiddleware&lt;/span>(&lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">tokenMaker&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Account Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">createAccount&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">GET&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts/:id&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">getAccount&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">GET&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">listAccounts&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">DELETE&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/accounts/:id&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">deleteAccounts&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Transfer Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/api/transfers&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">createTransfer&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// User Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">GET&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users/:username&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">getUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authGroup&lt;/span>.&lt;span style="color:#a6e22e">PATCH&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">updateUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Unauthenticated Routes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">createUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users/login&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">loginUser&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">router&lt;/span>.&lt;span style="color:#a6e22e">POST&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;api/users/renew&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">renewAccessToken&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">server&lt;/span>.&lt;span style="color:#a6e22e">router&lt;/span> = &lt;span style="color:#a6e22e">router&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you can see some requests require authentication, for token creating and verifying I used &lt;a class="link" href="https://paseto.io/" target="_blank" rel="noopener"
+>paseto&lt;/a>, Which is a very powerful secured token issuer, even better than &lt;code>JWT&lt;/code>, But anyway I have implemented both approaches toa get the most out of this project&lt;/p>
+&lt;p>Here is the &lt;a class="link" href="https://github.com/escalopa/gobank/tree/main/token" target="_blank" rel="noopener"
+>token makers implementation&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;h3 id="gapi">&lt;strong>gapi&lt;/strong>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;p>Well now we are getting to the most important part of this project, the &lt;code>gapi&lt;/code> package&lt;/p>
+&lt;p>It was the first time I was working with &lt;code>grpc&lt;/code> and &lt;code>protobuf&lt;/code> and I have to say it was a great experience since it is a very powerful tool to work with.&lt;/p>
+&lt;p>In the grpc server I didn&amp;rsquo;t implement all the endpoints, that was implemented in the gin server, but I did implement the following&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-golang" data-lang="golang">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Auth gRPC calls
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">Login&lt;/span>(&lt;span style="color:#a6e22e">LoginRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">LoginResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// service created but not implemented
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">Logout&lt;/span>(&lt;span style="color:#a6e22e">LogoutRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">google&lt;/span>.&lt;span style="color:#a6e22e">protobuf&lt;/span>.&lt;span style="color:#a6e22e">Empty&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// User gRPC calls
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">CreateUser&lt;/span>(&lt;span style="color:#a6e22e">UserRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">UserResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">GetUser&lt;/span>(&lt;span style="color:#a6e22e">Username&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">UserResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">UpdateUser&lt;/span>(&lt;span style="color:#a6e22e">UserUpdateRequest&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">UserResponse&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">rpc&lt;/span> &lt;span style="color:#a6e22e">DeleteUser&lt;/span>(&lt;span style="color:#a6e22e">Username&lt;/span>) &lt;span style="color:#a6e22e">returns&lt;/span> (&lt;span style="color:#a6e22e">google&lt;/span>.&lt;span style="color:#a6e22e">protobuf&lt;/span>.&lt;span style="color:#a6e22e">Empty&lt;/span>) {}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>For more in depth check the &lt;a class="link" href="https://github.com/escalopa/gobank/tree/main/gapi" target="_blank" rel="noopener"
+>gapi&lt;/a> dir&lt;/p>
+&lt;p>So yeah, that&amp;rsquo;s all for this article it was a nice project to work on and have learned a lot from it.&lt;/p>
+&lt;p>I hope you enjoyed it and if you have any questions or suggestions feel free to contact me on &lt;a class="link" href="https://t.me/escalopas" target="_blank" rel="noopener"
+>telergram&lt;/a>&lt;/p></description></item><item><title>Running your first Golong code today</title><link>https://escalopa.live/p/running-your-first-golong-code-today/</link><pubDate>Thu, 24 Nov 2022 02:19:05 +0300</pubDate><guid>https://escalopa.live/p/running-your-first-golong-code-today/</guid><description>&lt;img src="https://escalopa.live/p/running-your-first-golong-code-today/cover.png" alt="Featured image of post Running your first Golong code today" />&lt;h1 id="welcome-gopher">Welcome GOPHER!&lt;/h1>
+&lt;p>Today we will be setting the env for needed to run golang code on your machine&lt;/p>
+&lt;h2 id="installation">Installation&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Download go runtime from the &lt;a class="link" href="https://go.dev/dl/" target="_blank" rel="noopener"
+>main site&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Remove the old go runtime(If you have go already installed)&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ rm -rf /usr/local/go
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>Unzip the download file into &lt;code>/usr/local/&lt;/code> with the following command&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ tar -C /usr/local -xzf go1.19.3.linux-amd64.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="setting-up-gopath">Setting up GOPATH&lt;/h2>
+&lt;ol>
+&lt;li>Add &lt;code>GOPATH&lt;/code> to the &lt;code>PATHS&lt;/code> by editing the shell source file&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>export PATH=PATH:/usr/local/go/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>Note: The shell source file is like &lt;code>.bashrc&lt;/code>, &lt;code>.zshrc&lt;/code>, It depends on the current running shell on your machine&lt;/p>
+&lt;/blockquote>
+&lt;p>Afterwards to update the changes run&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ source SHELL_FILE
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now everything is set up the following command should work, Note that the output version might differ on your machine&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ go version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go version go1.19.2 linux/amd64
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>That&amp;rsquo;s all for this article, Wish it was helpful.&lt;/p>
+&lt;p>If you have any questions or got stuch with some problems leave in the comments below or message me&lt;/p></description></item></channel></rss>
