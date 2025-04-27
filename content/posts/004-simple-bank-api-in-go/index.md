@@ -64,11 +64,11 @@ So in short the gin server was handling the following request
 ### Endpoints
 
 ```golang
- router := gin.Default()
+router := gin.Default()
 
- authGroup := router.Group("/").Use(authMiddleware(server.tokenMaker))
+authGroup := router.Group("/").Use(authMiddleware(server.tokenMaker))
 
- {
+{
   // Account Routes
   authGroup.POST("/api/accounts", server.createAccount)
   authGroup.GET("/api/accounts/:id", server.getAccount)
@@ -81,14 +81,14 @@ So in short the gin server was handling the following request
   // User Routes
   authGroup.GET("api/users/:username", server.getUser)
   authGroup.PATCH("api/users", server.updateUser)
- }
+}
 
- // Unauthenticated Routes
- router.POST("api/users", server.createUser)
- router.POST("api/users/login", server.loginUser)
- router.POST("api/users/renew", server.renewAccessToken)
+// Unauthenticated Routes
+router.POST("api/users", server.createUser)
+router.POST("api/users/login", server.loginUser)
+router.POST("api/users/renew", server.renewAccessToken)
 
- server.router = router
+server.router = router
 ```
 
 As you can see some requests require authentication, for token creating and verifying I used [paseto](https://paseto.io/),
@@ -104,21 +104,21 @@ It was the first time I was working with `grpc` and `protobuf` and I have to say
 
 In the grpc server I didn't implement all the endpoints, that was implemented in the gin server, but I did implement the following
 
-```golang
-  // Auth gRPC calls
-  rpc Login(LoginRequest) returns (LoginResponse) {}
+```proto
+// Auth gRPC calls
+rpc Login(LoginRequest) returns (LoginResponse) {}
 
-  // service created but not implemented
-  rpc Logout(LogoutRequest) returns (google.protobuf.Empty) {}
-  
-  // User gRPC calls
-  rpc CreateUser(UserRequest) returns (UserResponse) {}
+// service created but not implemented
+rpc Logout(LogoutRequest) returns (google.protobuf.Empty) {}
 
-  rpc GetUser(Username) returns (UserResponse) {}
+// User gRPC calls
+rpc CreateUser(UserRequest) returns (UserResponse) {}
 
-  rpc UpdateUser(UserUpdateRequest) returns (UserResponse) {}
+rpc GetUser(Username) returns (UserResponse) {}
 
-  rpc DeleteUser(Username) returns (google.protobuf.Empty) {}
+rpc UpdateUser(UserUpdateRequest) returns (UserResponse) {}
+
+rpc DeleteUser(Username) returns (google.protobuf.Empty) {}
 ```
 
 For more in depth check the [gapi](https://github.com/escalopa/gobank/tree/main/gapi) dir
