@@ -1,0 +1,29 @@
+disabled = false
+languageCode = "ar"
+languageName = "العربية"
+weight = 2
+title = "إسكالوبا"
+
+[params]
+displayName = "AR"
+isoCode = "ar"
+rtl = true
+dateFormat = "2 January 2006"
+
+[params.author]
+name = "أحمد هلالي"
+email = "ahmad.helaly.dev@google.com"
+image = "img/profile.png"
+imageQuality = 96
+headline = "بناء أنظمة قابلة للتوسع"
+bio = "مهندس برمجيات"
+links = [
+  { github = "https://github.com/escalopa" },
+  { linkedin = "https://linkedin.com/in/escalopa" },
+  { youtube = "https://youtube.com/@escalopa" },
+  { dev = "https://dev.to/username" },
+  { medium = "https://escalopa.medium.com/" },
+  { stack-overflow = "https://stackoverflow.com/users/14295533/escalopa" },
+  { telegram = "https://t.me/escalopa" },
+  { orcid = "https://orcid.org/0009-0001-8208-3828" }
+]

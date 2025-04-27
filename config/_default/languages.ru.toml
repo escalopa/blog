@@ -1,0 +1,30 @@
+disabled = false
+languageCode = "ru"
+languageName = "Русский"
+weight = 3
+title = "Эскалопа"
+
+[params]
+displayName = "RU"
+isoCode = "ru"
+rtl = false
+dateFormat = "2 January 2006"
+description = ""
+
+[params.author]
+name = "Ахмад Хелали"
+email = "ahmad.helaly.dev@google.com"
+image = "img/profile.png"
+imageQuality = 96
+headline = "Разработка масштабируемых систем"
+bio = "Инженер-программист"
+links = [
+  { github = "https://github.com/escalopa" },
+  { linkedin = "https://linkedin.com/in/escalopa" },
+  { youtube = "https://youtube.com/@escalopa" },
+  { dev = "https://dev.to/username" },
+  { medium = "https://escalopa.medium.com/" },
+  { stack-overflow = "https://stackoverflow.com/users/14295533/escalopa" },
+  { telegram = "https://t.me/escalopa" },
+  { orcid = "https://orcid.org/0009-0001-8208-3828" }
+]
