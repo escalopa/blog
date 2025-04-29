@@ -15,28 +15,24 @@ summary: "Managing Linux services and boot with systemd"
 systemd uses units to manage different types of objects. Some common unit types are listed
 below:
 
-**• Service** units have a .service extension and represent system services. This type of unit is
-used to start frequently accessed daemons, such as a web server.
+| Type    | Description                                                                                                                                   |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Service | Represents system services. Used to start frequently accessed daemons, such as a web server.                                                  |
+| Socket  | Represents IPC sockets monitored by systemd. Starts the daemon when a client connects. Useful for on-demand or delayed service start at boot. |
+| Path    | Used to delay the activation of a service until a specific path condition is met.                                                             |
 
-**• Socket** units have a .socket extension and represent inter-process communication (IPC)
-sockets that systemd should monitor. If a client connects to the socket, systemd will start a
-daemon and pass the connection to it. Socket units are used to delay the start of a service at
-boot time and to start less frequently used services on demand.
-
-**• Path** units have a .path extension and are used to delay the activation of a service until
-
-a specific file system change occurs. This is commonly used for services which use spool
+A specific file system change occurs. This is commonly used for services which use spool
 directories such as a printing system.
 The systemctl command is used to manage units. For example, display available unit types with
 the `systemctl -t help command`
 
-```shell
-$ systemctl -t help
-```
+{{< highlight zsh >}}
+systemctl -t help
+{{< /highlight >}}
 
 To list current running active services run 
-```shell
-$ systemctl list-units --type=service
+{{< highlight zsh >}}
+systemctl list-units --type=service
 
 UNIT                               LOAD   ACTIVE SUB     DESCRIPTION                                                                  
 accounts-daemon.service            loaded active running Accounts Service
@@ -47,49 +43,54 @@ avahi-daemon.service               loaded active running Avahi mDNS/DNS-SD Stack
 chronyd.service                    loaded active running NTP client/server
 ...Output Omitted...
 
-```
+{{< /highlight >}}
 
 To specify a specific type for `LOAD`, `ACTIVE`, `SUB` use flag `--statue=` and specify the type needed., You can also add `--all` to show all services despite their state as the command by default shows **ONLY** active
 
 Illustration for the output above
-| COLUMN | DESCRIPTION |
-|---|---|
-| UNIT | The service unit name. |
-|LOAD |  Whether systemd properly parsed the unit's configuration and loaded the unit into memory.|
-| ACTIVE | The high-level activation state of the unit. This information indicates whether the unit has started successfully or not.|
-| SUB | The low-level activation state of the unit. This information indicates more detailed information about the unit. The information varies based on unit type, state, and how the unit is executed. |
-|DESCRIPTION | The short description of the unit. |
+
+| Column      | Description                                                                                                                                                            |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| UNIT        | The service unit name.                                                                                                                                                 |
+| LOAD        | Whether systemd properly parsed the unit's configuration and loaded the unit into memory.                                                                              |
+| ACTIVE      | The high-level activation state of the unit. This indicates whether the unit has started successfully or not.                                                          |
+| SUB         | The low-level activation state of the unit. Provides more detailed information about the unit, varying based on unit type, state, and how the unit is executed.        |
+| DESCRIPTION | The short description of the unit.                                                                                                                                     |
 
 
 Note that the running command `systemctl` without arguments show all active running units
 
 
-```shell
-$ systemctl list-unit-files --type=service
+{{< highlight zsh >}}
+systemctl list-unit-files --type=service
+{{< /highlight >}}
 
-```
 The command above list files shows enabled & disabled units, valid entries for the STATE
 field are enabled, disabled, static, and masked. 
 
 To show service status run `systemctl status UNIT.TYPE`
-```shell
+
+{{< highlight zsh >}}
 systemctl status UNIT.service
-```
+{{< /highlight >}}
 
 Check is service is enables, output values are`enabled`, `disabled`
-```shell
-$ systemctl is-enabled sshd.service
-```
+
+{{< highlight zsh >}}
+systemctl is-enabled sshd.service
+{{< /highlight >}}
 
 Check is service is active, output values are`active`, `inactive`
-```shell
-$ systemctl is-active sshd.service
-```
+
+{{< highlight zsh >}}
+systemctl is-active sshd.service
+{{< /highlight >}}
 
 Check is service is failed, output values are`active`, `failed`, `inactive`
-```shell
-$ systemctl is-failed sshd.service
-```
+
+{{< highlight zsh >}}
+systemctl is-failed sshd.service
+{{< /highlight >}}
 
 ## Manipulating units state
 
@@ -131,12 +132,13 @@ symbolic links to their systemctl equivalents.
 | emergency.target  | sulogin prompt, initramfs pivot complete, and system root mounted on / read only |
 
 To get the default running target use
-```shell
-$ systemctl get-default
-```
+{{< highlight zsh >}}
+systemctl get-default
+{{< /highlight >}}
 
 To change the default boot target use
-```shell 
-$ systemctl set-default TARGET_NAME
-```
+{{< highlight zsh >}}
+systemctl set-default TARGET_NAME
+{{< /highlight >}}
+
 Note that `TARGET_NAME` can only be 1 from the 4 types specified above.
