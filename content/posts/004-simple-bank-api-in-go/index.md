@@ -7,11 +7,11 @@ slug: "simple-bank-api-in-go"
 summary: "Building a simple bank API in Go using gin, gRPC, and sqlc"
 ---
 
-In this article I'll be talking about my latest but not the least project on golang `GOBANK`
+In this article I'll be talking about my latest but not the least project on go `gobank`
 
 The project is a simple implementation of a bank service
 
-I have learned a lot on this course like
+I have learned a lot of tools/libs on this course like
 
 1. gin
 2. grpc
@@ -46,11 +46,11 @@ So now I think it might be a good time to show the db schema of that project
 
 Actually working with `sqlc` was so useful since it automates a lot of db stuff instead of making it yourself, I also prefer to use it over `gorm` because first it is faster & it strengths you sql in some manner since you will have to write some queries by yourself.
 
-So in the next section I'll be going on depth on how I the db relations work.
+So in the next section I'll be going on depth on how interactions with the db.
 
 ### API
 
-In this project I decided to go with `gin` a golang web framework.
+In this project I decided to go with `gin` a go web framework.
 
 It had a lot of features that eases the handling of requests
 
@@ -63,12 +63,13 @@ So in short the gin server was handling the following request
 
 ### Endpoints
 
-```golang
- router := gin.Default()
+{{< highlight go >}}
 
- authGroup := router.Group("/").Use(authMiddleware(server.tokenMaker))
+router := gin.Default()
 
- {
+authGroup := router.Group("/").Use(authMiddleware(server.tokenMaker))
+
+{
   // Account Routes
   authGroup.POST("/api/accounts", server.createAccount)
   authGroup.GET("/api/accounts/:id", server.getAccount)
@@ -81,15 +82,15 @@ So in short the gin server was handling the following request
   // User Routes
   authGroup.GET("api/users/:username", server.getUser)
   authGroup.PATCH("api/users", server.updateUser)
- }
+}
 
- // Unauthenticated Routes
- router.POST("api/users", server.createUser)
- router.POST("api/users/login", server.loginUser)
- router.POST("api/users/renew", server.renewAccessToken)
+// Unauthenticated Routes
+router.POST("api/users", server.createUser)
+router.POST("api/users/login", server.loginUser)
+router.POST("api/users/renew", server.renewAccessToken)
 
- server.router = router
-```
+server.router = router
+{{< /highlight >}}
 
 As you can see some requests require authentication, for token creating and verifying I used [paseto](https://paseto.io/),
 Which is a very powerful secured token issuer, even better than `JWT`, But anyway I have implemented both approaches to get the most out of this project.
@@ -104,22 +105,22 @@ It was the first time I was working with `grpc` and `protobuf` and I have to say
 
 In the grpc server I didn't implement all the endpoints, that was implemented in the gin server, but I did implement the following
 
-```golang
-  // Auth gRPC calls
-  rpc Login(LoginRequest) returns (LoginResponse) {}
+{{< highlight proto >}}
+// Auth gRPC calls
+rpc Login(LoginRequest) returns (LoginResponse) {}
 
-  // service created but not implemented
-  rpc Logout(LogoutRequest) returns (google.protobuf.Empty) {}
-  
-  // User gRPC calls
-  rpc CreateUser(UserRequest) returns (UserResponse) {}
+// service created but not implemented
+rpc Logout(LogoutRequest) returns (google.protobuf.Empty) {}
 
-  rpc GetUser(Username) returns (UserResponse) {}
+// User gRPC calls
+rpc CreateUser(UserRequest) returns (UserResponse) {}
 
-  rpc UpdateUser(UserUpdateRequest) returns (UserResponse) {}
+rpc GetUser(Username) returns (UserResponse) {}
 
-  rpc DeleteUser(Username) returns (google.protobuf.Empty) {}
-```
+rpc UpdateUser(UserUpdateRequest) returns (UserResponse) {}
+
+rpc DeleteUser(Username) returns (google.protobuf.Empty) {}
+{{< /highlight >}}
 
 For more in depth check the [gapi](https://github.com/escalopa/gobank/tree/main/gapi) dir
 
