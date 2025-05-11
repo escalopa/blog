@@ -37,11 +37,11 @@ For each, we will have:
 
 ---
 
-## Mutex ⛓️
+## Mutex
 
 Mutex controls concurrent modifications of shared variables.
 
-### Example ✏️
+### Example
 
 {{< highlight go >}}
 import (
@@ -66,7 +66,7 @@ Actually, **the counter can be corrupted** under high request concurrency!
 
 ---
 
-### Solution ✅
+### Solution
 
 Use a `Mutex`:
 
@@ -97,7 +97,7 @@ func main() {
 
 ---
 
-### Signature 📕
+### Signature
 ```go
 type Mutex struct {}
 
@@ -136,11 +136,11 @@ func (m *Mutex) Unlock() {
 
 ---
 
-## RWMutex ⛓️
+## RWMutex
 
 `RWMutex` allows **multiple readers** but **only one writer**.
 
-### Example ✏️
+### Example
 
 {{< highlight go >}}
 type cache struct {
@@ -164,7 +164,7 @@ Concurrent writes will **corrupt** the `storage` map.
 
 ---
 
-### Solution ✅
+### Solution
 
 Use `RWMutex`:
 
@@ -197,7 +197,7 @@ func (c *cache) Set(key string, value interface{}) {
 
 ---
 
-### Signature 📕
+### Signature
 
 ```go
 type RWMutex struct {}
@@ -270,11 +270,11 @@ func (rw *RWMutex) Unlock() {
 
 ---
 
-## WaitGroup ⛓️
+## WaitGroup
 
 `WaitGroup` waits for a collection of goroutines to finish.
 
-### Example ✏️
+### Example
 
 {{< highlight go >}}
 import (
@@ -295,7 +295,7 @@ No waiting ➔ Main program may exit prematurely!
 
 ---
 
-### Solution ✅
+### Solution
 
 {{< highlight go >}}
 import (
@@ -321,7 +321,7 @@ func main() {
 
 ---
 
-### Signature 📕
+### Signature
 
 ```go
 type WaitGroup struct {}
@@ -381,7 +381,7 @@ func (wg *WaitGroup) Wait() {
 
 ---
 
-## Conclusion 🎉
+## Conclusion
 
 If you made it this far, I hope you learned something new 💫.  
 Stay tuned for more Go tips 🚀❤️‍🔥.

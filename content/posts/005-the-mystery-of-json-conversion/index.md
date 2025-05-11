@@ -11,7 +11,7 @@ slug:  "the-mystery-of-json-conversion-from-float64-to-int64"
 Working with JSON seems simple — until you encounter some weird behavior from `Marshal` / `Unmarshal` functions.
 {{< /lead >}}
 
-## Problem 😨
+## Problem
 
 It all started when I was trying to read the encoded payload from a JWT token.  
 Here's a simplified example that demonstrates the issue:
@@ -69,7 +69,7 @@ Ok:false
 
 ---
 
-## Debug 🐞
+## Debug
 
 I suspected the issue was with type conversion, so I printed the actual types:
 
@@ -89,9 +89,9 @@ So `json.Unmarshal` parsed `int64` as `float64`, causing the mismatch.
 
 ---
 
-## Solutions ✅
+## Solutions
 
-### 📃 Solution 01 (Hard Way)
+### Solution 01 (Hard Way)
 
 Manually assert the types, keeping in mind that `[]interface{}` can't be directly casted to `[]float64`:
 
@@ -123,7 +123,7 @@ post_ids: [1 2 3]
 
 ---
 
-### 📃 Solution 02 (Easy Way)
+### Solution 02 (Easy Way)
 
 Just **marshal the map again** and unmarshal it into the struct:
 
@@ -146,7 +146,7 @@ Much simpler! ✅
 
 ---
 
-## Which Solution is Better? 🤔
+## Which Solution is Better?
 
 It **depends**:
 
@@ -155,7 +155,7 @@ It **depends**:
 
 ---
 
-## Conclusion 🎉
+## Conclusion
 
 That's it for today's article!
 

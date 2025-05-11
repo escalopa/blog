@@ -1,6 +1,6 @@
 ---
-title: "Welcome to Blowfish!"
-description: "This is a demo of adding content to the homepage."
 ---
 
-Welcome to my website! I'm really happy you stopped by.
+Here share my thoughts, ideas, and projects. I hope you find something interesting here!
+
+More about me <a href="https://escalopa.com/en/about/">here</a>.
