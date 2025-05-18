@@ -14,8 +14,8 @@ title = "Escalopa"
 #  description = "My awesome website"
 
  [params.author]
-   name = "Ahmad Helaly"
-   email = "ahmad.helaly.dev@google.com"
+   name = "Ahmed Helaly"
+   email = "ahmed.helaly.dev@google.com"
    image = "img/profile.png"
    imageQuality = 96
    headline = "Crafting Systems That Scale"

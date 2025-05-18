@@ -4,7 +4,7 @@ heroStyle: background
 zenMode: true
 ---
 
-Hey, I'm Ahmad!
+Hey, I'm Ahmed!
 
 I'm a software engineer with a passion for building innovative solutions.
 

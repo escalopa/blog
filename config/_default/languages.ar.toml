@@ -12,7 +12,7 @@ dateFormat = "2 January 2006"
 
 [params.author]
 name = "أحمد هلالي"
-email = "ahmad.helaly.dev@google.com"
+email = "ahmed.helaly.dev@google.com"
 image = "img/profile.png"
 imageQuality = 96
 headline = "بناء أنظمة قابلة للتوسع"
