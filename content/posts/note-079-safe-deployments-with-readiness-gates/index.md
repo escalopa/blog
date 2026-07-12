@@ -1,6 +1,6 @@
 ---
 title: "Safe Deployments With Readiness Gates"
-date: 2026-07-11
+date: 2026-02-06
 slug: "safe-deployments-with-readiness-gates"
 summary: "A rollout is safe when new instances prove dependencies, warmup, and service health before receiving load."
 categories: ["platform"]

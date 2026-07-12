@@ -1,6 +1,6 @@
 ---
 title: "The Lost Update and How to Prevent It"
-date: 2026-07-11
+date: 2025-09-12
 slug: "the-lost-update-and-how-to-prevent-it"
 summary: "Atomic updates, locks, or optimistic versions must protect read-modify-write as one decision."
 categories: ["databases"]

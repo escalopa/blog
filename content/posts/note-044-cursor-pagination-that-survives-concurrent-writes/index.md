@@ -1,6 +1,6 @@
 ---
 title: "Cursor Pagination That Survives Concurrent Writes"
-date: 2026-07-11
+date: 2025-05-24
 slug: "cursor-pagination-that-survives-concurrent-writes"
 summary: "A cursor must encode a stable total ordering, not merely an offset into changing rows."
 categories: ["backend"]

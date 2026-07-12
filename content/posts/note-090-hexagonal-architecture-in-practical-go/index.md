@@ -1,6 +1,6 @@
 ---
 title: "Hexagonal Architecture in Practical Go"
-date: 2026-07-11
+date: 2026-04-28
 slug: "hexagonal-architecture-in-practical-go"
 summary: "Keep domain decisions behind ports and push transport and storage details to adapters."
 categories: ["architecture"]

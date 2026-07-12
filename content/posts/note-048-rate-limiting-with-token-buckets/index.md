@@ -1,6 +1,6 @@
 ---
 title: "Rate Limiting With Token Buckets"
-date: 2026-07-11
+date: 2025-06-23
 slug: "rate-limiting-with-token-buckets"
 summary: "Token buckets express sustained rate and burst capacity while keeping admission decisions cheap."
 categories: ["backend"]

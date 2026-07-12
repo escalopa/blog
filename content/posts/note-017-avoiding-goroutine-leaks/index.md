@@ -1,6 +1,6 @@
 ---
 title: "Avoiding Goroutine Leaks"
-date: 2026-07-11
+date: 2024-11-06
 slug: "avoiding-goroutine-leaks"
 summary: "Every goroutine needs an exit condition that remains reachable when downstream work stops."
 categories: ["go"]

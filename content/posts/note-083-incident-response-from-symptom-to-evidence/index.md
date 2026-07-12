@@ -1,6 +1,6 @@
 ---
 title: "Incident Response From Symptom to Evidence"
-date: 2026-07-11
+date: 2026-03-08
 slug: "incident-response-from-symptom-to-evidence"
 summary: "Stabilize impact, preserve a timeline, test hypotheses with signals, and separate recovery from diagnosis."
 categories: ["platform"]

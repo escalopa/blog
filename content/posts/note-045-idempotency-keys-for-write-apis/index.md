@@ -1,6 +1,6 @@
 ---
 title: "Idempotency Keys for Write APIs"
-date: 2026-07-11
+date: 2025-05-31
 slug: "idempotency-keys-for-write-apis"
 summary: "Bind a client key to request identity and persist the decided response for the retry window."
 categories: ["backend"]

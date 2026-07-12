@@ -1,6 +1,6 @@
 ---
 title: "Safe Configuration Loading in Go"
-date: 2026-07-11
+date: 2024-10-07
 slug: "safe-configuration-loading-in-go"
 summary: "Parse once, validate completely, expose immutable typed configuration, and fail before serving traffic."
 categories: ["go"]

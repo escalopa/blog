@@ -1,6 +1,6 @@
 ---
 title: "Functional Options Without API Confusion"
-date: 2026-07-11
+date: 2024-10-15
 slug: "functional-options-without-api-confusion"
 summary: "Options help optional construction only when defaults, validation, and option interaction remain obvious."
 categories: ["go"]

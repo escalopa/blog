@@ -1,6 +1,6 @@
 ---
 title: "Log Replication and the Raft Safety Story"
-date: 2026-07-11
+date: 2024-12-13
 slug: "log-replication-and-the-raft-safety-story"
 summary: "A leader commits only entries known to be durable on a quorum, preserving one ordered history."
 categories: ["distributed-systems"]

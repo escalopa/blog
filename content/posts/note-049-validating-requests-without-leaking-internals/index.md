@@ -1,6 +1,6 @@
 ---
 title: "Validating Requests Without Leaking Internals"
-date: 2026-07-11
+date: 2025-06-30
 slug: "validating-requests-without-leaking-internals"
 summary: "Separate syntactic validation, domain rules, and authorization, then return stable problem details."
 categories: ["backend"]

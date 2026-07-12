@@ -1,6 +1,6 @@
 ---
 title: "Cache Stampede Protection"
-date: 2026-07-11
+date: 2025-10-11
 slug: "cache-stampede-protection"
 summary: "Request coalescing, early refresh, and jitter keep one expiry from becoming a dependency spike."
 categories: ["databases"]

@@ -1,6 +1,6 @@
 ---
 title: "Designing Evolvable REST APIs"
-date: 2026-07-11
+date: 2025-05-02
 slug: "designing-evolvable-rest-apis"
 summary: "Compatibility comes from additive change, explicit semantics, and a deprecation path clients can observe."
 categories: ["backend"]

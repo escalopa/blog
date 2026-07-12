@@ -1,6 +1,6 @@
 ---
 title: "Error Chains You Can Operate in Go"
-date: 2026-07-11
+date: 2024-07-26
 slug: "error-chains-you-can-operate-in-go"
 summary: "Wrap errors for diagnosis, classify them for policy, and never make callers parse prose."
 categories: ["go"]

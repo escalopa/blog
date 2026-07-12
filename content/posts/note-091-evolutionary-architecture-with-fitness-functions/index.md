@@ -1,6 +1,6 @@
 ---
 title: "Evolutionary Architecture With Fitness Functions"
-date: 2026-07-11
+date: 2026-05-06
 slug: "evolutionary-architecture-with-fitness-functions"
 summary: "Automate checks for the architectural properties that must remain true as teams and systems change."
 categories: ["architecture"]

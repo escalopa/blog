@@ -1,6 +1,6 @@
 ---
 title: "The Real Cost of a Microservice"
-date: 2026-07-11
+date: 2026-04-21
 slug: "the-real-cost-of-a-microservice"
 summary: "Each service adds deployment, ownership, observability, compatibility, and failure-management obligations."
 categories: ["architecture"]

@@ -1,6 +1,6 @@
 ---
 title: "Building a Generic TTL Cache in Go"
-date: 2026-07-11
+date: 2024-11-28
 slug: "building-a-generic-ttl-cache-in-go"
 summary: "Generics can remove unsafe casts while explicit synchronization and expiry semantics preserve correctness."
 categories: ["go"]

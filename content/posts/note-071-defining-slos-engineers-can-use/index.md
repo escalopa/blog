@@ -1,6 +1,6 @@
 ---
 title: "Defining SLOs Engineers Can Use"
-date: 2026-07-11
+date: 2025-12-09
 slug: "defining-slos-engineers-can-use"
 summary: "An SLO connects user-visible success to an error budget and concrete release decisions."
 categories: ["platform"]

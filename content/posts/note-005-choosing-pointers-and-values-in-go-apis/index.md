@@ -1,6 +1,6 @@
 ---
 title: "Choosing Pointers and Values in Go APIs"
-date: 2026-07-11
+date: 2024-08-09
 slug: "choosing-pointers-and-values-in-go-apis"
 summary: "Choose receiver and parameter semantics from ownership, mutability, and copy cost rather than habit."
 categories: ["go"]

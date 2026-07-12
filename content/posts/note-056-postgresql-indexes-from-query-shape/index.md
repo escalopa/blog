@@ -1,6 +1,6 @@
 ---
 title: "PostgreSQL Indexes From Query Shape"
-date: 2026-07-11
+date: 2025-08-21
 slug: "postgresql-indexes-from-query-shape"
 summary: "Design indexes from predicates, join keys, ordering, selectivity, and write cost together."
 categories: ["databases"]

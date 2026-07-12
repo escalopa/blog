@@ -1,6 +1,6 @@
 ---
 title: "Designing Bounded Worker Pools in Go"
-date: 2026-07-11
+date: 2024-07-11
 slug: "designing-bounded-worker-pools-in-go"
 summary: "Bound concurrency at the admission point so overload becomes visible and controllable."
 categories: ["go"]

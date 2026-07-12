@@ -1,6 +1,6 @@
 ---
 title: "Quorums Without the Hand Waving"
-date: 2026-07-11
+date: 2025-02-02
 slug: "quorums-without-the-hand-waving"
 summary: "Intersecting read and write quorums provide a reasoning tool, not automatic availability or freshness."
 categories: ["distributed-systems"]

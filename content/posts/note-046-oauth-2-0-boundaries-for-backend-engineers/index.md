@@ -1,6 +1,6 @@
 ---
 title: "OAuth 2.0 Boundaries for Backend Engineers"
-date: 2026-07-11
+date: 2025-06-08
 slug: "oauth-2-0-boundaries-for-backend-engineers"
 summary: "Validate issuer, audience, signature, expiry, and scopes at the resource boundary."
 categories: ["backend"]

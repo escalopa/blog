@@ -11,12 +11,14 @@ from __future__ import annotations
 import hashlib
 import html
 import re
+from datetime import date, timedelta
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 POSTS = ROOT / "content" / "posts"
-PUBLISHED = "2026-07-11"
+FIRST_PUBLICATION = date(2024, 7, 11)
+LAST_PUBLICATION = date(2026, 7, 11)
 
 # series, category, title, core claim
 CATALOG = [
@@ -223,7 +225,14 @@ Signals:       How will we know the decision is wrong?
 Revisit:       Which event should reopen this decision?'''
 
 
-def article(series: str, category: str, title: str, claim: str, index: int) -> str:
+def article(
+    series: str,
+    category: str,
+    title: str,
+    claim: str,
+    index: int,
+    published: date,
+) -> str:
     slug = slugify(title)
     language, snippet = code_example(category, title)
     tags = {
@@ -236,7 +245,7 @@ def article(series: str, category: str, title: str, claim: str, index: int) -> s
     }[category]
     return f'''---
 title: "{title}"
-date: {PUBLISHED}
+date: {published.isoformat()}
 slug: "{slug}"
 summary: "{claim}"
 categories: ["{category}"]
@@ -359,8 +368,17 @@ def main() -> None:
         slugs.add(slug)
         digest = hashlib.sha1(title.encode()).hexdigest()[:6]
         folder = POSTS / f"note-{index:03d}-{slug}"
+        offset = round(
+            (index - 1)
+            * (LAST_PUBLICATION - FIRST_PUBLICATION).days
+            / (len(CATALOG) - 1)
+        )
+        published = FIRST_PUBLICATION + timedelta(days=offset)
         folder.mkdir(parents=True, exist_ok=True)
-        (folder / "index.md").write_text(article(series, category, title, claim, index), encoding="utf-8")
+        (folder / "index.md").write_text(
+            article(series, category, title, claim, index, published),
+            encoding="utf-8",
+        )
         (folder / "featured.svg").write_text(cover(title, category), encoding="utf-8")
         (folder / ".generated").write_text(f"{digest}\n", encoding="ascii")
 

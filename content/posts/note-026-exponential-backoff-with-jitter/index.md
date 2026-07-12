@@ -1,6 +1,6 @@
 ---
 title: "Exponential Backoff With Jitter"
-date: 2026-07-11
+date: 2025-01-11
 slug: "exponential-backoff-with-jitter"
 summary: "Jitter breaks synchronized retry waves while caps and deadlines bound recovery cost."
 categories: ["distributed-systems"]

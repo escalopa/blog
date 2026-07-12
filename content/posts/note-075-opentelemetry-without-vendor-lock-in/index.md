@@ -1,6 +1,6 @@
 ---
 title: "OpenTelemetry Without Vendor Lock-In"
-date: 2026-07-11
+date: 2026-01-08
 slug: "opentelemetry-without-vendor-lock-in"
 summary: "Keep instrumentation semantic and portable while isolating exporter and sampling policy."
 categories: ["platform"]

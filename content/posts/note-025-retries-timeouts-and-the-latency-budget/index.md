@@ -1,6 +1,6 @@
 ---
 title: "Retries, Timeouts, and the Latency Budget"
-date: 2026-07-11
+date: 2025-01-04
 slug: "retries-timeouts-and-the-latency-budget"
 summary: "Retries spend remaining deadline and capacity; they do not create either."
 categories: ["distributed-systems"]

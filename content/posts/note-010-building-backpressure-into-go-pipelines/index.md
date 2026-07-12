@@ -1,6 +1,6 @@
 ---
 title: "Building Backpressure Into Go Pipelines"
-date: 2026-07-11
+date: 2024-09-15
 slug: "building-backpressure-into-go-pipelines"
 summary: "A pipeline without bounded queues and cancellation is an outage amplifier."
 categories: ["go"]

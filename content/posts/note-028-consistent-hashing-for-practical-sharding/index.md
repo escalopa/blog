@@ -1,6 +1,6 @@
 ---
 title: "Consistent Hashing for Practical Sharding"
-date: 2026-07-11
+date: 2025-01-26
 slug: "consistent-hashing-for-practical-sharding"
 summary: "A hash ring limits key movement, but load balance still depends on virtual nodes and key distribution."
 categories: ["distributed-systems"]

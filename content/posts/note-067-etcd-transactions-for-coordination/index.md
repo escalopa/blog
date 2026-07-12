@@ -1,6 +1,6 @@
 ---
 title: "ETCD Transactions for Coordination"
-date: 2026-07-11
+date: 2025-11-10
 slug: "etcd-transactions-for-coordination"
 summary: "Compare-and-swap plus leases can encode ownership, but clients must handle revision and expiry races."
 categories: ["databases"]

@@ -1,6 +1,6 @@
 ---
 title: "Designing Stable Go Packages"
-date: 2026-07-11
+date: 2024-11-21
 slug: "designing-stable-go-packages"
 summary: "A package is stable when its responsibilities, exported surface, and dependency direction are narrow."
 categories: ["go"]
