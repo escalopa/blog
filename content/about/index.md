@@ -25,6 +25,6 @@ master's degree in Software Engineering at **Innopolis University**.
 
 {{< carousel images="graduation/*" >}}
 
-You can view my current [resume](https://docs.google.com/document/d/1C89Qyd3ZSh70swf5NWwIPSf56hG5hFz0COH4kk4QADI/edit?usp=sharing),
+You can view my current [resume](https://docs.google.com/document/d/1oBJodS9u7Nl6LhFw81EBk9E-VeyridNu/edit?usp=sharing&ouid=113306741938276127617&rtpof=true&sd=true),
 or explore the article series on Production Go, Distributed Systems, Backend
 APIs, Data Systems, Reliable Platforms, and Architecture Practice.
