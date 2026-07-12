@@ -1,6 +1,6 @@
 ---
 title: "Designing for Partial Failure"
-date: 2025-04-02
+date: 2025-05-13
 slug: "designing-for-partial-failure"
 summary: "Timeout, retry, fallback, and reconciliation paths are first-class behavior, not exceptional code."
 categories: ["distributed-systems"]

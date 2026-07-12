@@ -1,6 +1,6 @@
 ---
 title: "Webhooks That Can Be Retried Safely"
-date: 2025-06-15
+date: 2024-12-10
 slug: "webhooks-that-can-be-retried-safely"
 summary: "Sign payloads, preserve event identity, acknowledge quickly, and make processing replay-safe."
 categories: ["backend"]

@@ -1,6 +1,6 @@
 ---
 title: "When Channels Are the Wrong Abstraction"
-date: 2024-09-08
+date: 2024-11-20
 slug: "when-channels-are-the-wrong-abstraction"
 summary: "Use channels for ownership transfer and coordination, not as a universal replacement for locks."
 categories: ["go"]

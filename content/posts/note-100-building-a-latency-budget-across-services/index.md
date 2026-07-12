@@ -1,6 +1,6 @@
 ---
 title: "Building a Latency Budget Across Services"
-date: 2026-07-11
+date: 2026-06-02
 slug: "building-a-latency-budget-across-services"
 summary: "Allocate a percentile-aware deadline across work, dependencies, queues, and limited retries."
 categories: ["architecture"]

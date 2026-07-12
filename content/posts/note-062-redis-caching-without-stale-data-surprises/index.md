@@ -1,6 +1,6 @@
 ---
 title: "Redis Caching Without Stale Data Surprises"
-date: 2025-10-04
+date: 2024-10-16
 slug: "redis-caching-without-stale-data-surprises"
 summary: "Define ownership, expiry, invalidation, stampede control, and degraded behavior before adding cache code."
 categories: ["databases"]

@@ -1,6 +1,6 @@
 ---
 title: "Outbox Pattern for Reliable Event Publishing"
-date: 2025-02-17
+date: 2025-10-03
 slug: "outbox-pattern-for-reliable-event-publishing"
 summary: "Commit state and an event record together, then publish asynchronously with idempotent delivery."
 categories: ["distributed-systems"]

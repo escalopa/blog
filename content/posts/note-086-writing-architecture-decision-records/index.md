@@ -1,6 +1,6 @@
 ---
 title: "Writing Architecture Decision Records"
-date: 2026-03-30
+date: 2025-05-21
 slug: "writing-architecture-decision-records"
 summary: "Record context, forces, decision, consequences, and revisit triggers while the reasoning is fresh."
 categories: ["architecture"]

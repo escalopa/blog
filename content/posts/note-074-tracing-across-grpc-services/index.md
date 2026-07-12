@@ -1,6 +1,6 @@
 ---
 title: "Tracing Across gRPC Services"
-date: 2025-12-31
+date: 2024-09-09
 slug: "tracing-across-grpc-services"
 summary: "Propagate context, name spans by operation, and attach identifiers without recording sensitive payloads."
 categories: ["platform"]

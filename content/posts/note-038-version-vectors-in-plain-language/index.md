@@ -1,6 +1,6 @@
 ---
 title: "Version Vectors in Plain Language"
-date: 2025-04-10
+date: 2026-02-26
 slug: "version-vectors-in-plain-language"
 summary: "Version vectors distinguish causality from concurrency when one scalar version cannot."
 categories: ["distributed-systems"]

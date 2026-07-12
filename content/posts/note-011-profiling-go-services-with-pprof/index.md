@@ -1,6 +1,6 @@
 ---
 title: "Profiling Go Services With pprof"
-date: 2024-09-23
+date: 2025-08-12
 slug: "profiling-go-services-with-pprof"
 summary: "Profile the constrained resource under representative load before changing code."
 categories: ["go"]

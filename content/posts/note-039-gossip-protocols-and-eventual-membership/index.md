@@ -1,6 +1,6 @@
 ---
 title: "Gossip Protocols and Eventual Membership"
-date: 2025-04-17
+date: 2024-10-10
 slug: "gossip-protocols-and-eventual-membership"
 summary: "Random peer exchange trades immediate agreement for scalable, failure-tolerant convergence."
 categories: ["distributed-systems"]

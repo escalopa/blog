@@ -1,6 +1,6 @@
 ---
 title: "Handling Hot Keys Before They Melt a Service"
-date: 2025-03-19
+date: 2024-09-20
 slug: "handling-hot-keys-before-they-melt-a-service"
 summary: "Detect skew, isolate the key, coalesce work, and change partitioning only with evidence."
 categories: ["distributed-systems"]

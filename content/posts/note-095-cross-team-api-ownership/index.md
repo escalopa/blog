@@ -1,6 +1,6 @@
 ---
 title: "Cross-Team API Ownership"
-date: 2026-06-04
+date: 2026-06-17
 slug: "cross-team-api-ownership"
 summary: "One team owns the contract while consumers participate through compatibility tests and change visibility."
 categories: ["architecture"]

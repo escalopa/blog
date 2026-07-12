@@ -1,6 +1,6 @@
 ---
 title: "Structured Concurrency Patterns in Go"
-date: 2024-10-30
+date: 2024-12-07
 slug: "structured-concurrency-patterns-in-go"
 summary: "Child goroutines should share cancellation, error propagation, and a bounded lifetime with their parent."
 categories: ["go"]

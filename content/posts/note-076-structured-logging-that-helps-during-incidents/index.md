@@ -1,6 +1,6 @@
 ---
 title: "Structured Logging That Helps During Incidents"
-date: 2026-01-15
+date: 2025-03-01
 slug: "structured-logging-that-helps-during-incidents"
 summary: "Logs need stable event names, correlation, severity discipline, and deliberate data minimization."
 categories: ["platform"]

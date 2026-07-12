@@ -1,6 +1,6 @@
 ---
 title: "Exactly Once Is Usually a Local Property"
-date: 2024-12-28
+date: 2025-01-25
 slug: "exactly-once-is-usually-a-local-property"
 summary: "End-to-end exactly-once claims decompose into deduplication, atomicity, and replay-safe effects."
 categories: ["distributed-systems"]

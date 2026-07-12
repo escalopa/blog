@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import html
+import random
 import re
 from datetime import date, timedelta
 from pathlib import Path
@@ -19,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 POSTS = ROOT / "content" / "posts"
 FIRST_PUBLICATION = date(2024, 7, 11)
 LAST_PUBLICATION = date(2026, 7, 11)
+PUBLICATION_SEED = "escalopa-engineering-library-v1"
 
 # series, category, title, core claim
 CATALOG = [
@@ -360,6 +362,12 @@ def cover(title: str, category: str) -> str:
 def main() -> None:
     if len(CATALOG) != 100:
         raise SystemExit(f"catalog must contain 100 entries, got {len(CATALOG)}")
+    rng = random.Random(PUBLICATION_SEED)
+    available_days = (LAST_PUBLICATION - FIRST_PUBLICATION).days + 1
+    publication_dates = [
+        FIRST_PUBLICATION + timedelta(days=offset)
+        for offset in rng.sample(range(available_days), len(CATALOG))
+    ]
     slugs: set[str] = set()
     for index, (series, category, title, claim) in enumerate(CATALOG, start=1):
         slug = slugify(title)
@@ -368,12 +376,7 @@ def main() -> None:
         slugs.add(slug)
         digest = hashlib.sha1(title.encode()).hexdigest()[:6]
         folder = POSTS / f"note-{index:03d}-{slug}"
-        offset = round(
-            (index - 1)
-            * (LAST_PUBLICATION - FIRST_PUBLICATION).days
-            / (len(CATALOG) - 1)
-        )
-        published = FIRST_PUBLICATION + timedelta(days=offset)
+        published = publication_dates[index - 1]
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "index.md").write_text(
             article(series, category, title, claim, index, published),

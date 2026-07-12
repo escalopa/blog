@@ -1,6 +1,6 @@
 ---
 title: "Lease-Based Distributed Locks"
-date: 2025-03-04
+date: 2025-04-14
 slug: "lease-based-distributed-locks"
 summary: "A lease bounds stale ownership only when fencing tokens protect the resource from expired holders."
 categories: ["distributed-systems"]

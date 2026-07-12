@@ -1,6 +1,6 @@
 ---
 title: "Docker Images for Go Services"
-date: 2026-02-21
+date: 2026-04-05
 slug: "docker-images-for-go-services"
 summary: "A reproducible multi-stage build and minimal runtime reduce drift, size, and attack surface."
 categories: ["platform"]

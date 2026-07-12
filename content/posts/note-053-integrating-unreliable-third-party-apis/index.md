@@ -1,6 +1,6 @@
 ---
 title: "Integrating Unreliable Third-Party APIs"
-date: 2025-07-29
+date: 2025-07-07
 slug: "integrating-unreliable-third-party-apis"
 summary: "Put timeouts, quotas, translation, idempotency, and observability behind an anti-corruption layer."
 categories: ["backend"]

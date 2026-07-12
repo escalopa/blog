@@ -1,6 +1,6 @@
 ---
 title: "Reading EXPLAIN ANALYZE Without Guessing"
-date: 2025-08-28
+date: 2026-05-20
 slug: "reading-explain-analyze-without-guessing"
 summary: "Compare estimated and actual rows first, then find where time, loops, or memory multiply."
 categories: ["databases"]

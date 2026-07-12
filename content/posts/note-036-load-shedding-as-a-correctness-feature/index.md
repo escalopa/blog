@@ -1,6 +1,6 @@
 ---
 title: "Load Shedding as a Correctness Feature"
-date: 2025-03-26
+date: 2025-04-13
 slug: "load-shedding-as-a-correctness-feature"
 summary: "Rejecting excess work early preserves useful throughput and bounded latency for admitted requests."
 categories: ["distributed-systems"]

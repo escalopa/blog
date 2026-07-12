@@ -1,6 +1,6 @@
 ---
 title: "Kafka Partitioning and Consumer Parallelism"
-date: 2025-10-19
+date: 2025-03-02
 slug: "kafka-partitioning-and-consumer-parallelism"
 summary: "The key determines ordering and skew; partition count sets the ceiling for group parallelism."
 categories: ["databases"]

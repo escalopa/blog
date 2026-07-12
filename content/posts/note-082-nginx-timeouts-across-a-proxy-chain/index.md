@@ -1,6 +1,6 @@
 ---
 title: "NGINX Timeouts Across a Proxy Chain"
-date: 2026-02-28
+date: 2026-06-04
 slug: "nginx-timeouts-across-a-proxy-chain"
 summary: "Align connect, header, body, idle, and upstream deadlines so one layer does not outlive another."
 categories: ["platform"]

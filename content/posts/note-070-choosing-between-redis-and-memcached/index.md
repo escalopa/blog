@@ -1,6 +1,6 @@
 ---
 title: "Choosing Between Redis and Memcached"
-date: 2025-12-02
+date: 2025-11-19
 slug: "choosing-between-redis-and-memcached"
 summary: "Choose from data model, persistence, operations, clustering, and failure behavior rather than benchmark headlines."
 categories: ["databases"]

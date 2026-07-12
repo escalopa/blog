@@ -1,6 +1,6 @@
 ---
 title: "Read Repair and Anti-Entropy"
-date: 2025-03-11
+date: 2026-04-10
 slug: "read-repair-and-anti-entropy"
 summary: "Foreground repair improves observed keys while background comparison closes the long tail."
 categories: ["distributed-systems"]

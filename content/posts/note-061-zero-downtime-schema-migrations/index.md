@@ -1,6 +1,6 @@
 ---
 title: "Zero-Downtime Schema Migrations"
-date: 2025-09-26
+date: 2025-05-09
 slug: "zero-downtime-schema-migrations"
 summary: "Expand, migrate, verify, switch, and contract across independently deployed application versions."
 categories: ["databases"]

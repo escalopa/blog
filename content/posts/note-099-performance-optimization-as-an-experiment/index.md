@@ -1,6 +1,6 @@
 ---
 title: "Performance Optimization as an Experiment"
-date: 2026-07-04
+date: 2026-01-10
 slug: "performance-optimization-as-an-experiment"
 summary: "State a measurable hypothesis, control the workload, compare distributions, and retain a rollback path."
 categories: ["architecture"]

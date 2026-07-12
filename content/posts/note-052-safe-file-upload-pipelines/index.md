@@ -1,6 +1,6 @@
 ---
 title: "Safe File Upload Pipelines"
-date: 2025-07-22
+date: 2024-11-05
 slug: "safe-file-upload-pipelines"
 summary: "Stream with hard limits, quarantine content, verify type independently, and decouple scanning from trust."
 categories: ["backend"]

@@ -1,6 +1,6 @@
 ---
 title: "Ordering Events in Distributed Systems"
-date: 2025-02-10
+date: 2024-12-31
 slug: "ordering-events-in-distributed-systems"
 summary: "Choose the weakest ordering guarantee the business invariant needs and encode it per entity."
 categories: ["distributed-systems"]

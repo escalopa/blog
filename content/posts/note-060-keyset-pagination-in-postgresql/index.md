@@ -1,6 +1,6 @@
 ---
 title: "Keyset Pagination in PostgreSQL"
-date: 2025-09-19
+date: 2024-08-29
 slug: "keyset-pagination-in-postgresql"
 summary: "Seek from the last ordered key to keep page cost stable and results coherent."
 categories: ["databases"]

@@ -1,6 +1,6 @@
 ---
 title: "ClickHouse Table Design for Event Analytics"
-date: 2025-11-02
+date: 2024-08-03
 slug: "clickhouse-table-design-for-event-analytics"
 summary: "Partition for lifecycle, order for filtering locality, and measure cardinality before choosing codecs."
 categories: ["databases"]

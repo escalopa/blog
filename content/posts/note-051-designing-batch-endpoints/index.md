@@ -1,6 +1,6 @@
 ---
 title: "Designing Batch Endpoints"
-date: 2025-07-15
+date: 2024-11-10
 slug: "designing-batch-endpoints"
 summary: "Batch APIs need per-item outcomes, bounded size, deterministic identity, and explicit atomicity."
 categories: ["backend"]

@@ -1,6 +1,6 @@
 ---
 title: "A Practical Failure Detector"
-date: 2025-04-25
+date: 2025-10-09
 slug: "a-practical-failure-detector"
 summary: "Failure detectors produce suspicions from imperfect timing; the application decides how costly suspicion may be."
 categories: ["distributed-systems"]

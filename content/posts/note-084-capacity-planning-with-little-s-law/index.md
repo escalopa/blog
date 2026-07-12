@@ -1,6 +1,6 @@
 ---
 title: "Capacity Planning With Little's Law"
-date: 2026-03-15
+date: 2025-03-16
 slug: "capacity-planning-with-little-s-law"
 summary: "Concurrency equals arrival rate times time in system, giving a fast check for queues and resource demand."
 categories: ["platform"]

@@ -1,6 +1,6 @@
 ---
 title: "Turning Product Requirements Into System Constraints"
-date: 2026-05-20
+date: 2025-02-14
 slug: "turning-product-requirements-into-system-constraints"
 summary: "Translate user journeys into load, latency, consistency, privacy, availability, and cost envelopes."
 categories: ["architecture"]

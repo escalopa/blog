@@ -1,6 +1,6 @@
 ---
 title: "GraphQL N Plus One and DataLoader"
-date: 2025-08-13
+date: 2026-03-26
 slug: "graphql-n-plus-one-and-dataloader"
 summary: "Batching fixes duplicate fetch shape only when caching scope and authorization remain request-local."
 categories: ["backend"]

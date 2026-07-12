@@ -1,6 +1,6 @@
 ---
 title: "Design Reviews That Produce Decisions"
-date: 2026-05-13
+date: 2025-09-25
 slug: "design-reviews-that-produce-decisions"
 summary: "Share constraints and alternatives early, assign decision ownership, and record unresolved risks."
 categories: ["architecture"]

@@ -1,6 +1,6 @@
 ---
 title: "Code Review for High-Load Services"
-date: 2026-06-26
+date: 2026-01-07
 slug: "code-review-for-high-load-services"
 summary: "Review correctness under concurrency, bounds, failure behavior, observability, and rollout—not only syntax."
 categories: ["architecture"]
