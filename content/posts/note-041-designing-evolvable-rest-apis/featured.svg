@@ -7,15 +7,16 @@
 <rect width="1200" height="630" fill="url(#g)"/>
 <rect width="1200" height="630" fill="url(#grid)"/>
 <circle cx="960" cy="315" r="225" fill="#34d399" opacity=".10" filter="url(#glow)"/>
-<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
-<rect x="72" y="68" width="54" height="6" rx="3" fill="#34d399"/>
-<text x="72" y="118" fill="#34d399" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">BACKEND APIs / API</text>
-<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="72" dy="0">Designing Evolvable REST</tspan><tspan x="72" dy="68">APIs</tspan></text>
+<rect x="128" y="116" width="944" height="398" rx="18" fill="#020617" opacity=".13" stroke="#fff" stroke-width="1" stroke-opacity=".05"/>
+<path d="M760 132v366" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="156" y="138" width="54" height="6" rx="3" fill="#34d399"/>
+<text x="156" y="176" fill="#34d399" font-family="ui-monospace,SFMono-Regular,monospace" font-size="18" font-weight="700" letter-spacing="2">BACKEND APIs / API</text>
+<text x="156" y="248" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="156" dy="0">Designing Evolvable REST</tspan><tspan x="156" dy="68">APIs</tspan></text>
 <g fill="none" stroke="#34d399" stroke-width="4">
 <rect x="805" y="185" width="300" height="250" rx="28" opacity=".28"/>
 <path d="M870 260 825 310l45 50M1040 260l45 50-45 50M985 235l-60 150" stroke-width="12"/>
 <circle cx="845" cy="210" r="7" fill="#34d399"/><circle cx="870" cy="210" r="7" fill="#34d399" opacity=".65"/><circle cx="895" cy="210" r="7" fill="#34d399" opacity=".35"/>
 </g>
-<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
-<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  4CABB95F</text>
+<text x="156" y="466" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="600">Ahmed Helaly</text>
+<text x="156" y="496" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="15" letter-spacing="1">ESCALOPA.COM  ·  4CABB95F</text>
 </svg>

@@ -411,7 +411,7 @@ def cover(title: str, category: str) -> str:
     font_size = 54 if len(lines) <= 2 else 47
     line_height = font_size + 14
     title_spans = "".join(
-        f'<tspan x="72" dy="{0 if i == 0 else line_height}">{html.escape(line)}</tspan>'
+        f'<tspan x="156" dy="{0 if i == 0 else line_height}">{html.escape(line)}</tspan>'
         for i, line in enumerate(lines)
     )
     fingerprint = hashlib.sha1(title.encode()).hexdigest()[:8].upper()
@@ -425,13 +425,14 @@ def cover(title: str, category: str) -> str:
 <rect width="1200" height="630" fill="url(#g)"/>
 <rect width="1200" height="630" fill="url(#grid)"/>
 <circle cx="960" cy="315" r="225" fill="{accent}" opacity=".10" filter="url(#glow)"/>
-<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
-<rect x="72" y="68" width="54" height="6" rx="3" fill="{accent}"/>
-<text x="72" y="118" fill="{accent}" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">{labels[category]} / {mark}</text>
-<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="{font_size}" font-weight="720" letter-spacing="-1">{title_spans}</text>
+<rect x="128" y="116" width="944" height="398" rx="18" fill="#020617" opacity=".13" stroke="#fff" stroke-width="1" stroke-opacity=".05"/>
+<path d="M760 132v366" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="156" y="138" width="54" height="6" rx="3" fill="{accent}"/>
+<text x="156" y="176" fill="{accent}" font-family="ui-monospace,SFMono-Regular,monospace" font-size="18" font-weight="700" letter-spacing="2">{labels[category]} / {mark}</text>
+<text x="156" y="248" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="{font_size}" font-weight="720" letter-spacing="-1">{title_spans}</text>
 {motif}
-<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
-<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  {fingerprint}</text>
+<text x="156" y="466" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="600">Ahmed Helaly</text>
+<text x="156" y="496" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="15" letter-spacing="1">ESCALOPA.COM  ·  {fingerprint}</text>
 </svg>'''
 
 

@@ -7,14 +7,15 @@
 <rect width="1200" height="630" fill="url(#g)"/>
 <rect width="1200" height="630" fill="url(#grid)"/>
 <circle cx="960" cy="315" r="225" fill="#00add8" opacity=".10" filter="url(#glow)"/>
-<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
-<rect x="72" y="68" width="54" height="6" rx="3" fill="#00add8"/>
-<text x="72" y="118" fill="#00add8" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">PRODUCTION GO / GO</text>
-<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="72" dy="0">When Channels Are the</tspan><tspan x="72" dy="68">Wrong Abstraction</tspan></text>
+<rect x="128" y="116" width="944" height="398" rx="18" fill="#020617" opacity=".13" stroke="#fff" stroke-width="1" stroke-opacity=".05"/>
+<path d="M760 132v366" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="156" y="138" width="54" height="6" rx="3" fill="#00add8"/>
+<text x="156" y="176" fill="#00add8" font-family="ui-monospace,SFMono-Regular,monospace" font-size="18" font-weight="700" letter-spacing="2">PRODUCTION GO / GO</text>
+<text x="156" y="248" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="156" dy="0">When Channels Are the</tspan><tspan x="156" dy="68">Wrong Abstraction</tspan></text>
 <circle cx="955" cy="315" r="132" fill="none" stroke="#00add8" stroke-width="3" opacity=".8"/>
 <circle cx="955" cy="315" r="88" fill="none" stroke="#00add8" stroke-width="18" stroke-dasharray="95 42" opacity=".55"/>
 <path d="M842 315h226M955 202v226" stroke="#00add8" stroke-width="2" opacity=".32"/>
 <circle cx="955" cy="315" r="18" fill="#00add8"/>
-<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
-<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  D0A6216B</text>
+<text x="156" y="466" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="600">Ahmed Helaly</text>
+<text x="156" y="496" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="15" letter-spacing="1">ESCALOPA.COM  ·  D0A6216B</text>
 </svg>

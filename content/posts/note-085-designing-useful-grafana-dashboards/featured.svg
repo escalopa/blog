@@ -7,15 +7,16 @@
 <rect width="1200" height="630" fill="url(#g)"/>
 <rect width="1200" height="630" fill="url(#grid)"/>
 <circle cx="960" cy="315" r="225" fill="#fb7185" opacity=".10" filter="url(#glow)"/>
-<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
-<rect x="72" y="68" width="54" height="6" rx="3" fill="#fb7185"/>
-<text x="72" y="118" fill="#fb7185" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">RELIABLE PLATFORMS / OPS</text>
-<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="72" dy="0">Designing Useful Grafana</tspan><tspan x="72" dy="68">Dashboards</tspan></text>
+<rect x="128" y="116" width="944" height="398" rx="18" fill="#020617" opacity=".13" stroke="#fff" stroke-width="1" stroke-opacity=".05"/>
+<path d="M760 132v366" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="156" y="138" width="54" height="6" rx="3" fill="#fb7185"/>
+<text x="156" y="176" fill="#fb7185" font-family="ui-monospace,SFMono-Regular,monospace" font-size="18" font-weight="700" letter-spacing="2">RELIABLE PLATFORMS / OPS</text>
+<text x="156" y="248" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="156" dy="0">Designing Useful Grafana</tspan><tspan x="156" dy="68">Dashboards</tspan></text>
 <g fill="none" stroke="#fb7185" stroke-width="4">
 <path d="M790 350h55l32-92 55 170 47-222 50 144h92" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M805 190h300v250H805z" opacity=".2"/>
 <path d="M805 245h300M805 310h300M805 375h300M865 190v250M925 190v250M985 190v250M1045 190v250" opacity=".12"/>
 </g>
-<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
-<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  69D831FA</text>
+<text x="156" y="466" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="600">Ahmed Helaly</text>
+<text x="156" y="496" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="15" letter-spacing="1">ESCALOPA.COM  ·  69D831FA</text>
 </svg>
