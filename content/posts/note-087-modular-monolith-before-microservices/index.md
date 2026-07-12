@@ -1,6 +1,6 @@
 ---
 title: "Modular Monolith Before Microservices"
-date: 2026-07-11
+date: 2025-12-21
 slug: "modular-monolith-before-microservices"
 summary: "Strong internal boundaries earn optional distribution without paying network and operations costs early."
 categories: ["architecture"]

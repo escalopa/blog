@@ -1,6 +1,6 @@
 ---
 title: "Reducing Allocations in Hot Go Paths"
-date: 2026-07-11
+date: 2024-12-12
 slug: "reducing-allocations-in-hot-go-paths"
 summary: "Allocation work starts with profiles and escape analysis, then targets lifetime and representation."
 categories: ["go"]

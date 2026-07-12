@@ -1,6 +1,6 @@
 ---
 title: "Transaction Isolation Through Anomalies"
-date: 2026-07-11
+date: 2025-02-19
 slug: "transaction-isolation-through-anomalies"
 summary: "Choose isolation by naming the anomaly that would violate a business invariant."
 categories: ["databases"]

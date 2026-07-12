@@ -1,6 +1,6 @@
 ---
 title: "Finding Service Boundaries With Invariants"
-date: 2026-07-11
+date: 2026-02-17
 slug: "finding-service-boundaries-with-invariants"
 summary: "Place data and behavior that change under one invariant behind the same consistency boundary."
 categories: ["architecture"]

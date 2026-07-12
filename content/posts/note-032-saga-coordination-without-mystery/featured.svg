@@ -1,8 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Saga Coordination Without Mystery">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#15122b"/><stop offset="1" stop-color="#020617"/></linearGradient></defs>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#15122b"/><stop offset=".72" stop-color="#07111f"/><stop offset="1" stop-color="#020617"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#fff" stroke-width="1" opacity=".035"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
 <rect width="1200" height="630" fill="url(#g)"/>
-<circle cx="1060" cy="90" r="210" fill="#8b5cf6" opacity=".12"/><circle cx="1040" cy="560" r="300" fill="#8b5cf6" opacity=".08"/>
-<path d="M80 128h160" stroke="#8b5cf6" stroke-width="10"/><text x="80" y="105" fill="#8b5cf6" font-family="ui-monospace,monospace" font-size="34" font-weight="700">ENGINEERING NOTE · DS</text>
-<text x="80" y="285" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="700"><tspan x="80">Saga Coordination</tspan><tspan x="80" dy="76">Without Mystery</tspan></text>
-<text x="80" y="560" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="28">Ahmed Helaly · escalopa.com</text>
+<rect width="1200" height="630" fill="url(#grid)"/>
+<circle cx="960" cy="315" r="225" fill="#8b5cf6" opacity=".10" filter="url(#glow)"/>
+<rect x="128" y="116" width="944" height="398" rx="18" fill="#020617" opacity=".13" stroke="#fff" stroke-width="1" stroke-opacity=".05"/>
+<path d="M760 132v366" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="156" y="138" width="54" height="6" rx="3" fill="#8b5cf6"/>
+<text x="156" y="176" fill="#8b5cf6" font-family="ui-monospace,SFMono-Regular,monospace" font-size="18" font-weight="700" letter-spacing="2">DISTRIBUTED SYSTEMS / DS</text>
+<text x="156" y="248" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="156" dy="0">Saga Coordination</tspan><tspan x="156" dy="68">Without Mystery</tspan></text>
+<g fill="#07111f" stroke="#8b5cf6" stroke-width="4">
+<path d="M828 220 944 174 1067 239 1032 376 890 420 813 330Z" fill="none" opacity=".45"/>
+<path d="M828 220 955 310 1067 239M955 310 1032 376M955 310 890 420M813 330 955 310" fill="none" opacity=".7"/>
+<circle cx="828" cy="220" r="15"/><circle cx="944" cy="174" r="15"/><circle cx="1067" cy="239" r="15"/><circle cx="1032" cy="376" r="15"/><circle cx="890" cy="420" r="15"/><circle cx="813" cy="330" r="15"/><circle cx="955" cy="310" r="24" fill="#8b5cf6"/>
+</g>
+<text x="156" y="466" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="600">Ahmed Helaly</text>
+<text x="156" y="496" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="15" letter-spacing="1">ESCALOPA.COM  ·  0E270948</text>
 </svg>

@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes Resource Requests and Limits"
-date: 2026-07-11
+date: 2025-08-14
 slug: "kubernetes-resource-requests-and-limits"
 summary: "Requests drive placement; limits change runtime behavior; both need measurements from realistic load."
 categories: ["platform"]

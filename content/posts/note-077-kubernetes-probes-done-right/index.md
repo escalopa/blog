@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes Probes Done Right"
-date: 2026-07-11
+date: 2024-07-13
 slug: "kubernetes-probes-done-right"
 summary: "Startup, readiness, and liveness answer different questions and should trigger different actions."
 categories: ["platform"]

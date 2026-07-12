@@ -1,6 +1,6 @@
 ---
 title: "Teaching Distributed Systems With Failure Scenarios"
-date: 2026-07-11
+date: 2026-06-03
 slug: "teaching-distributed-systems-with-failure-scenarios"
 summary: "Start from observable failures and invariants, then introduce algorithms as tools that preserve them."
 categories: ["architecture"]

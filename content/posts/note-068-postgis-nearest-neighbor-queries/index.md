@@ -1,6 +1,6 @@
 ---
 title: "PostGIS Nearest-Neighbor Queries"
-date: 2026-07-11
+date: 2025-11-11
 slug: "postgis-nearest-neighbor-queries"
 summary: "Use spatial indexes and distance operators that preserve indexability before calculating exact distance."
 categories: ["databases"]

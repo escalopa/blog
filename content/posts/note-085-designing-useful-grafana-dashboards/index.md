@@ -1,6 +1,6 @@
 ---
 title: "Designing Useful Grafana Dashboards"
-date: 2026-07-11
+date: 2025-10-19
 slug: "designing-useful-grafana-dashboards"
 summary: "Start from operator questions and put traffic, errors, latency, saturation, and deploy context together."
 categories: ["platform"]

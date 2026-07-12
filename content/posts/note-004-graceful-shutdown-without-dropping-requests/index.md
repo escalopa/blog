@@ -1,6 +1,6 @@
 ---
 title: "Graceful Shutdown Without Dropping Requests"
-date: 2026-07-11
+date: 2025-05-06
 slug: "graceful-shutdown-without-dropping-requests"
 summary: "Shutdown is a protocol: stop admission, drain in-flight work, flush state, then release dependencies."
 categories: ["go"]

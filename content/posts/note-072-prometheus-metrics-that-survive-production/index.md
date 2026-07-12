@@ -1,6 +1,6 @@
 ---
 title: "Prometheus Metrics That Survive Production"
-date: 2026-07-11
+date: 2026-02-18
 slug: "prometheus-metrics-that-survive-production"
 summary: "Instrument bounded dimensions and user outcomes; labels are a data model with a capacity cost."
 categories: ["platform"]

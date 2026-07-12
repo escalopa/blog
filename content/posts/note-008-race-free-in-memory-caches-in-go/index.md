@@ -1,6 +1,6 @@
 ---
 title: "Race-Free In-Memory Caches in Go"
-date: 2026-07-11
+date: 2025-07-31
 slug: "race-free-in-memory-caches-in-go"
 summary: "Correct cache synchronization must cover compound operations, expiry, and loader duplication."
 categories: ["go"]

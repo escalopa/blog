@@ -1,6 +1,6 @@
 ---
 title: "Planning a Safe Service Rollout"
-date: 2026-07-11
+date: 2026-04-18
 slug: "planning-a-safe-service-rollout"
 summary: "Stage exposure, define observability and rollback signals, and test compatibility before scaling traffic."
 categories: ["architecture"]

@@ -10,13 +10,17 @@ from __future__ import annotations
 
 import hashlib
 import html
+import random
 import re
+from datetime import date, timedelta
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 POSTS = ROOT / "content" / "posts"
-PUBLISHED = "2026-07-11"
+FIRST_PUBLICATION = date(2024, 7, 11)
+LAST_PUBLICATION = date(2026, 7, 11)
+PUBLICATION_SEED = "escalopa-engineering-library-v1"
 
 # series, category, title, core claim
 CATALOG = [
@@ -223,7 +227,14 @@ Signals:       How will we know the decision is wrong?
 Revisit:       Which event should reopen this decision?'''
 
 
-def article(series: str, category: str, title: str, claim: str, index: int) -> str:
+def article(
+    series: str,
+    category: str,
+    title: str,
+    claim: str,
+    index: int,
+    published: date,
+) -> str:
     slug = slugify(title)
     language, snippet = code_example(category, title)
     tags = {
@@ -236,7 +247,7 @@ def article(series: str, category: str, title: str, claim: str, index: int) -> s
     }[category]
     return f'''---
 title: "{title}"
-date: {PUBLISHED}
+date: {published.isoformat()}
 slug: "{slug}"
 summary: "{claim}"
 categories: ["{category}"]
@@ -331,26 +342,109 @@ path.
 '''
 
 
+def wrap_title(title: str, limit: int = 24) -> list[str]:
+    lines: list[str] = []
+    current: list[str] = []
+    for word in title.split():
+        candidate = " ".join([*current, word])
+        if current and len(candidate) > limit:
+            lines.append(" ".join(current))
+            current = [word]
+        else:
+            current.append(word)
+    if current:
+        lines.append(" ".join(current))
+    if len(lines) > 3:
+        lines = [lines[0], lines[1], " ".join(lines[2:])]
+    return lines
+
+
+def cover_motif(category: str, accent: str) -> str:
+    motifs = {
+        "go": f'''<circle cx="955" cy="315" r="132" fill="none" stroke="{accent}" stroke-width="3" opacity=".8"/>
+<circle cx="955" cy="315" r="88" fill="none" stroke="{accent}" stroke-width="18" stroke-dasharray="95 42" opacity=".55"/>
+<path d="M842 315h226M955 202v226" stroke="{accent}" stroke-width="2" opacity=".32"/>
+<circle cx="955" cy="315" r="18" fill="{accent}"/>''',
+        "distributed-systems": f'''<g fill="#07111f" stroke="{accent}" stroke-width="4">
+<path d="M828 220 944 174 1067 239 1032 376 890 420 813 330Z" fill="none" opacity=".45"/>
+<path d="M828 220 955 310 1067 239M955 310 1032 376M955 310 890 420M813 330 955 310" fill="none" opacity=".7"/>
+<circle cx="828" cy="220" r="15"/><circle cx="944" cy="174" r="15"/><circle cx="1067" cy="239" r="15"/><circle cx="1032" cy="376" r="15"/><circle cx="890" cy="420" r="15"/><circle cx="813" cy="330" r="15"/><circle cx="955" cy="310" r="24" fill="{accent}"/>
+</g>''',
+        "backend": f'''<g fill="none" stroke="{accent}" stroke-width="4">
+<rect x="805" y="185" width="300" height="250" rx="28" opacity=".28"/>
+<path d="M870 260 825 310l45 50M1040 260l45 50-45 50M985 235l-60 150" stroke-width="12"/>
+<circle cx="845" cy="210" r="7" fill="{accent}"/><circle cx="870" cy="210" r="7" fill="{accent}" opacity=".65"/><circle cx="895" cy="210" r="7" fill="{accent}" opacity=".35"/>
+</g>''',
+        "databases": f'''<g fill="#07111f" stroke="{accent}" stroke-width="4">
+<ellipse cx="955" cy="210" rx="125" ry="42" fill="{accent}" opacity=".24"/>
+<path d="M830 210v190c0 24 56 43 125 43s125-19 125-43V210" fill="none"/>
+<path d="M830 275c0 24 56 43 125 43s125-19 125-43M830 338c0 24 56 43 125 43s125-19 125-43" fill="none" opacity=".55"/>
+<ellipse cx="955" cy="210" rx="125" ry="42" fill="none"/>
+</g>''',
+        "platform": f'''<g fill="none" stroke="{accent}" stroke-width="4">
+<path d="M790 350h55l32-92 55 170 47-222 50 144h92" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M805 190h300v250H805z" opacity=".2"/>
+<path d="M805 245h300M805 310h300M805 375h300M865 190v250M925 190v250M985 190v250M1045 190v250" opacity=".12"/>
+</g>''',
+        "architecture": f'''<g fill="none" stroke="{accent}" stroke-width="4">
+<rect x="790" y="205" width="128" height="92" rx="10"/><rect x="990" y="205" width="128" height="92" rx="10"/>
+<rect x="890" y="365" width="128" height="92" rx="10"/>
+<path d="M918 251h72M854 297v38h100v30M1054 297v38H954" opacity=".7"/>
+<circle cx="954" cy="335" r="9" fill="{accent}"/>
+</g>''',
+    }
+    return motifs[category]
+
+
 def cover(title: str, category: str) -> str:
     bg, accent, mark = PALETTES[category]
     safe = html.escape(title)
-    words = title.split()
-    midpoint = max(1, len(words) // 2)
-    line1 = html.escape(" ".join(words[:midpoint]))
-    line2 = html.escape(" ".join(words[midpoint:]))
+    labels = {
+        "go": "PRODUCTION GO",
+        "distributed-systems": "DISTRIBUTED SYSTEMS",
+        "backend": "BACKEND APIs",
+        "databases": "DATA SYSTEMS",
+        "platform": "RELIABLE PLATFORMS",
+        "architecture": "ARCHITECTURE PRACTICE",
+    }
+    lines = wrap_title(title)
+    font_size = 54 if len(lines) <= 2 else 47
+    line_height = font_size + 14
+    title_spans = "".join(
+        f'<tspan x="156" dy="{0 if i == 0 else line_height}">{html.escape(line)}</tspan>'
+        for i, line in enumerate(lines)
+    )
+    fingerprint = hashlib.sha1(title.encode()).hexdigest()[:8].upper()
+    motif = cover_motif(category, accent)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="{safe}">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="{bg}"/><stop offset="1" stop-color="#020617"/></linearGradient></defs>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="{bg}"/><stop offset=".72" stop-color="#07111f"/><stop offset="1" stop-color="#020617"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#fff" stroke-width="1" opacity=".035"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
 <rect width="1200" height="630" fill="url(#g)"/>
-<circle cx="1060" cy="90" r="210" fill="{accent}" opacity=".12"/><circle cx="1040" cy="560" r="300" fill="{accent}" opacity=".08"/>
-<path d="M80 128h160" stroke="{accent}" stroke-width="10"/><text x="80" y="105" fill="{accent}" font-family="ui-monospace,monospace" font-size="34" font-weight="700">ENGINEERING NOTE · {mark}</text>
-<text x="80" y="285" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="700"><tspan x="80">{line1}</tspan><tspan x="80" dy="76">{line2}</tspan></text>
-<text x="80" y="560" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="28">Ahmed Helaly · escalopa.com</text>
+<rect width="1200" height="630" fill="url(#grid)"/>
+<circle cx="960" cy="315" r="225" fill="{accent}" opacity=".10" filter="url(#glow)"/>
+<rect x="128" y="116" width="944" height="398" rx="18" fill="#020617" opacity=".13" stroke="#fff" stroke-width="1" stroke-opacity=".05"/>
+<path d="M760 132v366" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="156" y="138" width="54" height="6" rx="3" fill="{accent}"/>
+<text x="156" y="176" fill="{accent}" font-family="ui-monospace,SFMono-Regular,monospace" font-size="18" font-weight="700" letter-spacing="2">{labels[category]} / {mark}</text>
+<text x="156" y="248" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="{font_size}" font-weight="720" letter-spacing="-1">{title_spans}</text>
+{motif}
+<text x="156" y="466" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="600">Ahmed Helaly</text>
+<text x="156" y="496" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="15" letter-spacing="1">ESCALOPA.COM  ·  {fingerprint}</text>
 </svg>'''
 
 
 def main() -> None:
     if len(CATALOG) != 100:
         raise SystemExit(f"catalog must contain 100 entries, got {len(CATALOG)}")
+    rng = random.Random(PUBLICATION_SEED)
+    available_days = (LAST_PUBLICATION - FIRST_PUBLICATION).days + 1
+    publication_dates = [
+        FIRST_PUBLICATION + timedelta(days=offset)
+        for offset in rng.sample(range(available_days), len(CATALOG))
+    ]
     slugs: set[str] = set()
     for index, (series, category, title, claim) in enumerate(CATALOG, start=1):
         slug = slugify(title)
@@ -359,8 +453,12 @@ def main() -> None:
         slugs.add(slug)
         digest = hashlib.sha1(title.encode()).hexdigest()[:6]
         folder = POSTS / f"note-{index:03d}-{slug}"
+        published = publication_dates[index - 1]
         folder.mkdir(parents=True, exist_ok=True)
-        (folder / "index.md").write_text(article(series, category, title, claim, index), encoding="utf-8")
+        (folder / "index.md").write_text(
+            article(series, category, title, claim, index, published),
+            encoding="utf-8",
+        )
         (folder / "featured.svg").write_text(cover(title, category), encoding="utf-8")
         (folder / ".generated").write_text(f"{digest}\n", encoding="ascii")
 

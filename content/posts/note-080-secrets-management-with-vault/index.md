@@ -1,6 +1,6 @@
 ---
 title: "Secrets Management With Vault"
-date: 2026-07-11
+date: 2024-08-06
 slug: "secrets-management-with-vault"
 summary: "Use short-lived identity-bound credentials and design renewal and revocation as runtime paths."
 categories: ["platform"]

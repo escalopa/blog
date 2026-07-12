@@ -1,6 +1,6 @@
 ---
 title: "gRPC Deadlines and Error Semantics"
-date: 2026-07-11
+date: 2024-10-02
 slug: "grpc-deadlines-and-error-semantics"
 summary: "Deadlines cross service boundaries; status codes must separate retryable transport conditions from domain outcomes."
 categories: ["backend"]

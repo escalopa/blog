@@ -1,6 +1,6 @@
 ---
 title: "Making Go HTTP Clients Production Ready"
-date: 2026-07-11
+date: 2026-06-28
 slug: "making-go-http-clients-production-ready"
 summary: "Timeouts, connection reuse, response draining, and retry policy belong in the client design."
 categories: ["go"]

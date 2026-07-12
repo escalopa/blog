@@ -1,6 +1,6 @@
 ---
 title: "Connection Pools Are Capacity Limits"
-date: 2026-07-11
+date: 2024-11-18
 slug: "connection-pools-are-capacity-limits"
 summary: "Pool size must reflect database concurrency, transaction duration, and queueing—not application goroutine count."
 categories: ["databases"]

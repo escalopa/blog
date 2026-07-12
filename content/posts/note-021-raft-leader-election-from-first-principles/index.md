@@ -1,6 +1,6 @@
 ---
 title: "Raft Leader Election From First Principles"
-date: 2026-07-11
+date: 2025-03-27
 slug: "raft-leader-election-from-first-principles"
 summary: "Randomized election timeouts and term monotonicity turn competing candidates into one current leader."
 categories: ["distributed-systems"]

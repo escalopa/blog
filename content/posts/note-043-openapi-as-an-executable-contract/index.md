@@ -1,6 +1,6 @@
 ---
 title: "OpenAPI as an Executable Contract"
-date: 2026-07-11
+date: 2025-07-23
 slug: "openapi-as-an-executable-contract"
 summary: "Treat the schema as reviewed source code and test implementations and clients against it."
 categories: ["backend"]

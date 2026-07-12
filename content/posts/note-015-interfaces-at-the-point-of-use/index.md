@@ -1,6 +1,6 @@
 ---
 title: "Interfaces at the Point of Use"
-date: 2026-07-11
+date: 2026-01-25
 slug: "interfaces-at-the-point-of-use"
 summary: "Small consumer-owned interfaces reduce coupling and make tests describe real dependencies."
 categories: ["go"]

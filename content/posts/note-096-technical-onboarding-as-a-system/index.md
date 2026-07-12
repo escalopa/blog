@@ -1,6 +1,6 @@
 ---
 title: "Technical Onboarding as a System"
-date: 2026-07-11
+date: 2026-04-16
 slug: "technical-onboarding-as-a-system"
 summary: "Give newcomers a map, a runnable path, progressive tasks, and feedback loops instead of a document dump."
 categories: ["architecture"]

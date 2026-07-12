@@ -1,6 +1,6 @@
 ---
 title: "Saga Coordination Without Mystery"
-date: 2026-07-11
+date: 2026-03-17
 slug: "saga-coordination-without-mystery"
 summary: "A saga is a state machine of forward actions, durable decisions, and explicit compensations."
 categories: ["distributed-systems"]

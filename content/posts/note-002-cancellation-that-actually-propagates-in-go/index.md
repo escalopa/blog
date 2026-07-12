@@ -1,6 +1,6 @@
 ---
 title: "Cancellation That Actually Propagates in Go"
-date: 2026-07-11
+date: 2025-09-10
 slug: "cancellation-that-actually-propagates-in-go"
 summary: "A context is useful only when every blocking boundary observes it and cleanup has a clear owner."
 categories: ["go"]

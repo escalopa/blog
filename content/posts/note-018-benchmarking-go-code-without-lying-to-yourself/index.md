@@ -1,6 +1,6 @@
 ---
 title: "Benchmarking Go Code Without Lying to Yourself"
-date: 2026-07-11
+date: 2024-08-16
 slug: "benchmarking-go-code-without-lying-to-yourself"
 summary: "Benchmarks need stable inputs, allocation reporting, multiple runs, and a comparison tied to user impact."
 categories: ["go"]

@@ -1,6 +1,6 @@
 ---
 title: "Kafka Delivery Semantics in Practice"
-date: 2026-07-11
+date: 2025-09-18
 slug: "kafka-delivery-semantics-in-practice"
 summary: "Offsets and side effects must share a recoverable protocol to survive crashes between them."
 categories: ["databases"]

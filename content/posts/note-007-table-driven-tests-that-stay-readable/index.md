@@ -1,6 +1,6 @@
 ---
 title: "Table-Driven Tests That Stay Readable"
-date: 2026-07-11
+date: 2026-06-06
 slug: "table-driven-tests-that-stay-readable"
 summary: "A good table captures behavior dimensions without hiding the arrange-act-assert story."
 categories: ["go"]

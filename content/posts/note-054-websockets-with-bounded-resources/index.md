@@ -1,6 +1,6 @@
 ---
 title: "WebSockets With Bounded Resources"
-date: 2026-07-11
+date: 2026-06-16
 slug: "websockets-with-bounded-resources"
 summary: "Every connection needs limits for authentication, queues, heartbeats, fan-out, and shutdown."
 categories: ["backend"]

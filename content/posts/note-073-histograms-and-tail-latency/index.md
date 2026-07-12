@@ -1,6 +1,6 @@
 ---
 title: "Histograms and Tail Latency"
-date: 2026-07-11
+date: 2026-03-15
 slug: "histograms-and-tail-latency"
 summary: "Choose buckets around decisions and inspect distributions; averages conceal the users waiting longest."
 categories: ["platform"]

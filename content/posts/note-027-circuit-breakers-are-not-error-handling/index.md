@@ -1,6 +1,6 @@
 ---
 title: "Circuit Breakers Are Not Error Handling"
-date: 2026-07-11
+date: 2026-02-05
 slug: "circuit-breakers-are-not-error-handling"
 summary: "A breaker protects a dependency and caller capacity; ordinary failures still require explicit policy."
 categories: ["distributed-systems"]

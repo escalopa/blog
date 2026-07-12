@@ -1,6 +1,6 @@
 ---
 title: "API Versioning Without Permanent Forks"
-date: 2026-07-11
+date: 2025-01-24
 slug: "api-versioning-without-permanent-forks"
 summary: "Prefer compatible evolution; version only when semantics truly conflict and plan convergence."
 categories: ["backend"]

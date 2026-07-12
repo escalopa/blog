@@ -1,6 +1,6 @@
 ---
 title: "Designing Idempotent Consumers"
-date: 2026-07-11
+date: 2025-02-25
 slug: "designing-idempotent-consumers"
 summary: "Persist the business effect and message identity in one atomic boundary whenever possible."
 categories: ["distributed-systems"]
