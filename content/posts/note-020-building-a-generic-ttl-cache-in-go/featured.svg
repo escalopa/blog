@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Building a Generic TTL Cache in Go">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071a2b"/><stop offset="1" stop-color="#020617"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#g)"/>
+<circle cx="1060" cy="90" r="210" fill="#00add8" opacity=".12"/><circle cx="1040" cy="560" r="300" fill="#00add8" opacity=".08"/>
+<path d="M80 128h160" stroke="#00add8" stroke-width="10"/><text x="80" y="105" fill="#00add8" font-family="ui-monospace,monospace" font-size="34" font-weight="700">ENGINEERING NOTE · GO</text>
+<text x="80" y="285" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="700"><tspan x="80">Building a Generic</tspan><tspan x="80" dy="76">TTL Cache in Go</tspan></text>
+<text x="80" y="560" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="28">Ahmed Helaly · escalopa.com</text>
+</svg>
