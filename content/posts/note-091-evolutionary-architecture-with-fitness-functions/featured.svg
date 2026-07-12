@@ -1,8 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Evolutionary Architecture With Fitness Functions">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#020617"/></linearGradient></defs>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111827"/><stop offset=".72" stop-color="#07111f"/><stop offset="1" stop-color="#020617"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#fff" stroke-width="1" opacity=".035"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
 <rect width="1200" height="630" fill="url(#g)"/>
-<circle cx="1060" cy="90" r="210" fill="#60a5fa" opacity=".12"/><circle cx="1040" cy="560" r="300" fill="#60a5fa" opacity=".08"/>
-<path d="M80 128h160" stroke="#60a5fa" stroke-width="10"/><text x="80" y="105" fill="#60a5fa" font-family="ui-monospace,monospace" font-size="34" font-weight="700">ENGINEERING NOTE · ARC</text>
-<text x="80" y="285" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="700"><tspan x="80">Evolutionary Architecture</tspan><tspan x="80" dy="76">With Fitness Functions</tspan></text>
-<text x="80" y="560" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="28">Ahmed Helaly · escalopa.com</text>
+<rect width="1200" height="630" fill="url(#grid)"/>
+<circle cx="960" cy="315" r="225" fill="#60a5fa" opacity=".10" filter="url(#glow)"/>
+<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="72" y="68" width="54" height="6" rx="3" fill="#60a5fa"/>
+<text x="72" y="118" fill="#60a5fa" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">ARCHITECTURE PRACTICE / ARC</text>
+<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="47" font-weight="720" letter-spacing="-1"><tspan x="72" dy="0">Evolutionary</tspan><tspan x="72" dy="61">Architecture With</tspan><tspan x="72" dy="61">Fitness Functions</tspan></text>
+<g fill="none" stroke="#60a5fa" stroke-width="4">
+<rect x="790" y="205" width="128" height="92" rx="10"/><rect x="990" y="205" width="128" height="92" rx="10"/>
+<rect x="890" y="365" width="128" height="92" rx="10"/>
+<path d="M918 251h72M854 297v38h100v30M1054 297v38H954" opacity=".7"/>
+<circle cx="954" cy="335" r="9" fill="#60a5fa"/>
+</g>
+<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
+<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  7DC06F95</text>
 </svg>

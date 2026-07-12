@@ -1,8 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Error Chains You Can Operate in Go">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071a2b"/><stop offset="1" stop-color="#020617"/></linearGradient></defs>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071a2b"/><stop offset=".72" stop-color="#07111f"/><stop offset="1" stop-color="#020617"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#fff" stroke-width="1" opacity=".035"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
 <rect width="1200" height="630" fill="url(#g)"/>
-<circle cx="1060" cy="90" r="210" fill="#00add8" opacity=".12"/><circle cx="1040" cy="560" r="300" fill="#00add8" opacity=".08"/>
-<path d="M80 128h160" stroke="#00add8" stroke-width="10"/><text x="80" y="105" fill="#00add8" font-family="ui-monospace,monospace" font-size="34" font-weight="700">ENGINEERING NOTE · GO</text>
-<text x="80" y="285" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="700"><tspan x="80">Error Chains You</tspan><tspan x="80" dy="76">Can Operate in Go</tspan></text>
-<text x="80" y="560" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="28">Ahmed Helaly · escalopa.com</text>
+<rect width="1200" height="630" fill="url(#grid)"/>
+<circle cx="960" cy="315" r="225" fill="#00add8" opacity=".10" filter="url(#glow)"/>
+<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="72" y="68" width="54" height="6" rx="3" fill="#00add8"/>
+<text x="72" y="118" fill="#00add8" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">PRODUCTION GO / GO</text>
+<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="72" dy="0">Error Chains You Can</tspan><tspan x="72" dy="68">Operate in Go</tspan></text>
+<circle cx="955" cy="315" r="132" fill="none" stroke="#00add8" stroke-width="3" opacity=".8"/>
+<circle cx="955" cy="315" r="88" fill="none" stroke="#00add8" stroke-width="18" stroke-dasharray="95 42" opacity=".55"/>
+<path d="M842 315h226M955 202v226" stroke="#00add8" stroke-width="2" opacity=".32"/>
+<circle cx="955" cy="315" r="18" fill="#00add8"/>
+<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
+<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  023A73FF</text>
 </svg>

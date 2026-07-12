@@ -1,8 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="API Versioning Without Permanent Forks">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08261f"/><stop offset="1" stop-color="#020617"/></linearGradient></defs>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08261f"/><stop offset=".72" stop-color="#07111f"/><stop offset="1" stop-color="#020617"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#fff" stroke-width="1" opacity=".035"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
 <rect width="1200" height="630" fill="url(#g)"/>
-<circle cx="1060" cy="90" r="210" fill="#34d399" opacity=".12"/><circle cx="1040" cy="560" r="300" fill="#34d399" opacity=".08"/>
-<path d="M80 128h160" stroke="#34d399" stroke-width="10"/><text x="80" y="105" fill="#34d399" font-family="ui-monospace,monospace" font-size="34" font-weight="700">ENGINEERING NOTE · API</text>
-<text x="80" y="285" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="700"><tspan x="80">API Versioning</tspan><tspan x="80" dy="76">Without Permanent Forks</tspan></text>
-<text x="80" y="560" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="28">Ahmed Helaly · escalopa.com</text>
+<rect width="1200" height="630" fill="url(#grid)"/>
+<circle cx="960" cy="315" r="225" fill="#34d399" opacity=".10" filter="url(#glow)"/>
+<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="72" y="68" width="54" height="6" rx="3" fill="#34d399"/>
+<text x="72" y="118" fill="#34d399" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">BACKEND APIs / API</text>
+<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="72" dy="0">API Versioning Without</tspan><tspan x="72" dy="68">Permanent Forks</tspan></text>
+<g fill="none" stroke="#34d399" stroke-width="4">
+<rect x="805" y="185" width="300" height="250" rx="28" opacity=".28"/>
+<path d="M870 260 825 310l45 50M1040 260l45 50-45 50M985 235l-60 150" stroke-width="12"/>
+<circle cx="845" cy="210" r="7" fill="#34d399"/><circle cx="870" cy="210" r="7" fill="#34d399" opacity=".65"/><circle cx="895" cy="210" r="7" fill="#34d399" opacity=".35"/>
+</g>
+<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
+<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  62BAE06E</text>
 </svg>

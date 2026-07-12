@@ -1,8 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Structured Logging That Helps During Incidents">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#260d19"/><stop offset="1" stop-color="#020617"/></linearGradient></defs>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#260d19"/><stop offset=".72" stop-color="#07111f"/><stop offset="1" stop-color="#020617"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#fff" stroke-width="1" opacity=".035"/></pattern>
+<filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
 <rect width="1200" height="630" fill="url(#g)"/>
-<circle cx="1060" cy="90" r="210" fill="#fb7185" opacity=".12"/><circle cx="1040" cy="560" r="300" fill="#fb7185" opacity=".08"/>
-<path d="M80 128h160" stroke="#fb7185" stroke-width="10"/><text x="80" y="105" fill="#fb7185" font-family="ui-monospace,monospace" font-size="34" font-weight="700">ENGINEERING NOTE · OPS</text>
-<text x="80" y="285" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="700"><tspan x="80">Structured Logging That</tspan><tspan x="80" dy="76">Helps During Incidents</tspan></text>
-<text x="80" y="560" fill="#94a3b8" font-family="Inter,Arial,sans-serif" font-size="28">Ahmed Helaly · escalopa.com</text>
+<rect width="1200" height="630" fill="url(#grid)"/>
+<circle cx="960" cy="315" r="225" fill="#fb7185" opacity=".10" filter="url(#glow)"/>
+<path d="M742 84v462" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="72" y="68" width="54" height="6" rx="3" fill="#fb7185"/>
+<text x="72" y="118" fill="#fb7185" font-family="ui-monospace,SFMono-Regular,monospace" font-size="20" font-weight="700" letter-spacing="2">RELIABLE PLATFORMS / OPS</text>
+<text x="72" y="225" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="54" font-weight="720" letter-spacing="-1"><tspan x="72" dy="0">Structured Logging That</tspan><tspan x="72" dy="68">Helps During Incidents</tspan></text>
+<g fill="none" stroke="#fb7185" stroke-width="4">
+<path d="M790 350h55l32-92 55 170 47-222 50 144h92" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M805 190h300v250H805z" opacity=".2"/>
+<path d="M805 245h300M805 310h300M805 375h300M865 190v250M925 190v250M985 190v250M1045 190v250" opacity=".12"/>
+</g>
+<text x="72" y="558" fill="#cbd5e1" font-family="Inter,Arial,sans-serif" font-size="23" font-weight="600">Ahmed Helaly</text>
+<text x="72" y="591" fill="#64748b" font-family="ui-monospace,SFMono-Regular,monospace" font-size="16" letter-spacing="1">ESCALOPA.COM  ·  69EE6868</text>
 </svg>
